@@ -1,0 +1,841 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1eb58abd",
+   "metadata": {
+    "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
+    "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:02.342692Z",
+     "iopub.status.busy": "2025-02-01T13:20:02.342216Z",
+     "iopub.status.idle": "2025-02-01T13:20:03.448181Z",
+     "shell.execute_reply": "2025-02-01T13:20:03.446945Z"
+    },
+    "papermill": {
+     "duration": 1.11403,
+     "end_time": "2025-02-01T13:20:03.450516",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:02.336486",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# This Python 3 environment comes with many helpful analytics libraries installed\n",
+    "# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python\n",
+    "# For example, here's several helpful packages to load\n",
+    "\n",
+    "import numpy as np # linear algebra\n",
+    "import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)\n",
+    "\n",
+    "# Input data files are available in the read-only \"../input/\" directory\n",
+    "# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory\n",
+    "\n",
+    "import os\n",
+    "for dirname, _, filenames in os.walk('/kaggle/input'):\n",
+    "    for filename in filenames:\n",
+    "        print(os.path.join(dirname, filename))\n",
+    "\n",
+    "# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using \"Save & Run All\" \n",
+    "# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4069d3d0",
+   "metadata": {
+    "papermill": {
+     "duration": 0.003405,
+     "end_time": "2025-02-01T13:20:03.458191",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:03.454786",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Install necessary module"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "4ff7c8f2",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:03.466926Z",
+     "iopub.status.busy": "2025-02-01T13:20:03.466360Z",
+     "iopub.status.idle": "2025-02-01T13:20:28.342427Z",
+     "shell.execute_reply": "2025-02-01T13:20:28.340684Z"
+    },
+    "papermill": {
+     "duration": 24.882716,
+     "end_time": "2025-02-01T13:20:28.344519",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:03.461803",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting wbdata\r\n",
+      "  Downloading wbdata-1.0.0-py3-none-any.whl.metadata (2.6 kB)\r\n",
+      "Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (2.2.2)\r\n",
+      "Collecting appdirs<2.0,>=1.4 (from wbdata)\r\n",
+      "  Downloading appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)\r\n",
+      "Collecting backoff<3.0.0,>=2.2.1 (from wbdata)\r\n",
+      "  Downloading backoff-2.2.1-py3-none-any.whl.metadata (14 kB)\r\n",
+      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.5.0)\r\n",
+      "Collecting dateparser<2.0.0,>=1.2.0 (from wbdata)\r\n",
+      "  Downloading dateparser-1.2.0-py2.py3-none-any.whl.metadata (28 kB)\r\n",
+      "Collecting decorator<6.0.0,>=5.1.1 (from wbdata)\r\n",
+      "  Downloading decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)\r\n",
+      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.32.3)\r\n",
+      "Collecting shelved-cache<0.4.0,>=0.3.1 (from wbdata)\r\n",
+      "  Downloading shelved_cache-0.3.1-py3-none-any.whl.metadata (4.7 kB)\r\n",
+      "Collecting tabulate<0.9.0,>=0.8.5 (from wbdata)\r\n",
+      "  Downloading tabulate-0.8.10-py3-none-any.whl.metadata (25 kB)\r\n",
+      "Requirement already satisfied: numpy>=1.22.4 in /usr/local/lib/python3.10/dist-packages (from pandas) (1.26.4)\r\n",
+      "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas) (2.8.2)\r\n",
+      "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)\r\n",
+      "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)\r\n",
+      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27 in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
+      "Requirement already satisfied: tzlocal in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.2)\r\n",
+      "Requirement already satisfied: mkl_fft in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (1.3.8)\r\n",
+      "Requirement already satisfied: mkl_random in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (1.2.4)\r\n",
+      "Requirement already satisfied: mkl_umath in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (0.1.1)\r\n",
+      "Requirement already satisfied: mkl in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (2025.0.1)\r\n",
+      "Requirement already satisfied: tbb4py in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (2022.0.0)\r\n",
+      "Requirement already satisfied: mkl-service in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (2.4.1)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.0)\r\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2.2.3)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2024.12.14)\r\n",
+      "Requirement already satisfied: intel-openmp>=2024 in /usr/local/lib/python3.10/dist-packages (from mkl->numpy>=1.22.4->pandas) (2024.2.0)\r\n",
+      "Requirement already satisfied: tbb==2022.* in /usr/local/lib/python3.10/dist-packages (from mkl->numpy>=1.22.4->pandas) (2022.0.0)\r\n",
+      "Requirement already satisfied: tcmlib==1.* in /usr/local/lib/python3.10/dist-packages (from tbb==2022.*->mkl->numpy>=1.22.4->pandas) (1.2.0)\r\n",
+      "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy>=1.22.4->pandas) (2024.2.0)\r\n",
+      "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy>=1.22.4->pandas) (2024.2.0)\r\n",
+      "Downloading wbdata-1.0.0-py3-none-any.whl (18 kB)\r\n",
+      "Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)\r\n",
+      "Downloading backoff-2.2.1-py3-none-any.whl (15 kB)\r\n",
+      "Downloading dateparser-1.2.0-py2.py3-none-any.whl (294 kB)\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m295.0/295.0 kB\u001b[0m \u001b[31m11.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[?25hDownloading decorator-5.1.1-py3-none-any.whl (9.1 kB)\r\n",
+      "Downloading shelved_cache-0.3.1-py3-none-any.whl (7.8 kB)\r\n",
+      "Downloading tabulate-0.8.10-py3-none-any.whl (29 kB)\r\n",
+      "Installing collected packages: appdirs, tabulate, shelved-cache, decorator, backoff, dateparser, wbdata\r\n",
+      "  Attempting uninstall: tabulate\r\n",
+      "    Found existing installation: tabulate 0.9.0\r\n",
+      "    Uninstalling tabulate-0.9.0:\r\n",
+      "      Successfully uninstalled tabulate-0.9.0\r\n",
+      "  Attempting uninstall: decorator\r\n",
+      "    Found existing installation: decorator 4.4.2\r\n",
+      "    Uninstalling decorator-4.4.2:\r\n",
+      "      Successfully uninstalled decorator-4.4.2\r\n",
+      "\u001b[31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\r\n",
+      "bigframes 1.29.0 requires tabulate>=0.9, but you have tabulate 0.8.10 which is incompatible.\r\n",
+      "gcsfs 2024.10.0 requires fsspec==2024.10.0, but you have fsspec 2024.9.0 which is incompatible.\r\n",
+      "moviepy 1.0.3 requires decorator<5.0,>=4.0.2, but you have decorator 5.1.1 which is incompatible.\u001b[0m\u001b[31m\r\n",
+      "\u001b[0mSuccessfully installed appdirs-1.4.4 backoff-2.2.1 dateparser-1.2.0 decorator-5.1.1 shelved-cache-0.3.1 tabulate-0.8.10 wbdata-1.0.0\r\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install wbdata pandas\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "397e73c6",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004826,
+     "end_time": "2025-02-01T13:20:28.355127",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:28.350301",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Prototype code"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "7ceba2a7",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:28.366687Z",
+     "iopub.status.busy": "2025-02-01T13:20:28.366351Z",
+     "iopub.status.idle": "2025-02-01T13:20:29.878118Z",
+     "shell.execute_reply": "2025-02-01T13:20:29.876942Z"
+    },
+    "papermill": {
+     "duration": 1.52008,
+     "end_time": "2025-02-01T13:20:29.880298",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:28.360218",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            country  Trade (% of GDP)\n",
+      "date                                 \n",
+      "2019-01-01  Denmark        111.891475\n",
+      "2018-01-01  Denmark        108.813986\n",
+      "2017-01-01  Denmark        104.215677\n",
+      "2016-01-01  Denmark        101.452784\n",
+      "2015-01-01  Denmark        105.130362\n",
+      "...             ...               ...\n",
+      "2014-01-01   Sweden         83.822647\n",
+      "2013-01-01   Sweden         81.639813\n",
+      "2012-01-01   Sweden         85.297671\n",
+      "2011-01-01   Sweden         86.390325\n",
+      "2010-01-01   Sweden         85.091049\n",
+      "\n",
+      "[90 rows x 2 columns]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# List of countries to fetch data for (using ISO 3166-1 alpha-3 country codes)\n",
+    "countries = ['DNK', 'EST', 'FIN', 'ISL', 'IRL', 'LVA', 'LTU', 'NOR', 'SWE']\n",
+    "\n",
+    "# Indicator for trade (% of GDP)\n",
+    "indicator = {'NE.TRD.GNFS.ZS': 'Trade (% of GDP)'}\n",
+    "\n",
+    "# Define the start and end dates\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Fetch the data using wbdata\n",
+    "df = wbdata.get_dataframe(\n",
+    "    indicator, \n",
+    "    country=countries, \n",
+    "    date=(start_date, end_date)  # Use 'date' instead of 'data_date'\n",
+    ")\n",
+    "\n",
+    "# Reset the index to have separate columns for 'country' and 'date'\n",
+    "df = df.reset_index()\n",
+    "\n",
+    "# Convert the 'date' column to datetime\n",
+    "df['date'] = pd.to_datetime(df['date'])\n",
+    "\n",
+    "# Set the index back to 'date' if desired\n",
+    "df = df.set_index('date')\n",
+    "\n",
+    "# Display the data\n",
+    "print(df)\n",
+    "\n",
+    "# Save the output as an Excel file for Kaggle output\n",
+    "df.to_excel('/kaggle/working/Trade_percent_of_GDP_2010_2019.xlsx')  # Save to Kaggle output\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "602a4791",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004949,
+     "end_time": "2025-02-01T13:20:29.891051",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:29.886102",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "## Final Code"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f351c76b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004823,
+     "end_time": "2025-02-01T13:20:29.901069",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:29.896246",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Trade openness for western european countries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "8e423fa5",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:29.912800Z",
+     "iopub.status.busy": "2025-02-01T13:20:29.912202Z",
+     "iopub.status.idle": "2025-02-01T13:20:30.120103Z",
+     "shell.execute_reply": "2025-02-01T13:20:30.118872Z"
+    },
+    "papermill": {
+     "duration": 0.215529,
+     "end_time": "2025-02-01T13:20:30.121611",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:29.906082",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            country  Trade (% of GDP)  year\n",
+      "109     Netherlands        130.081708  2010\n",
+      "49           France         56.587555  2010\n",
+      "69          Ireland        189.863838  2010\n",
+      "39          Germany         73.862641  2010\n",
+      "79    Liechtenstein               NaN  2010\n",
+      "..              ...               ...   ...\n",
+      "40           France         66.428977  2019\n",
+      "70    Liechtenstein               NaN  2019\n",
+      "50   United Kingdom         64.665134  2019\n",
+      "10          Belgium        165.465479  2019\n",
+      "0           Austria        108.207285  2019\n",
+      "\n",
+      "[110 rows x 3 columns]\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_large_values = (abs_vals > 1e6).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
+     ]
+    }
+   ],
+   "source": [
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# List of countries to fetch data for (using ISO 3166-1 alpha-3 country codes)\n",
+    "countries = ['AUT', 'BEL', 'FRA', 'DEU', 'LIE', 'LUX', 'MCO', 'NLD', 'CHE', 'GBR', 'IRL']\n",
+    "\n",
+    "# Indicator for trade (% of GDP)\n",
+    "indicator = {'NE.TRD.GNFS.ZS': 'Trade (% of GDP)'}\n",
+    "\n",
+    "# Define the start and end dates\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Fetch the data using wbdata\n",
+    "df = wbdata.get_dataframe(\n",
+    "    indicator, \n",
+    "    country=countries, \n",
+    "    date=(start_date, end_date)  # Use 'date' instead of 'data_date'\n",
+    ")\n",
+    "\n",
+    "# Reset the index to have separate columns for 'country' and 'date'\n",
+    "df = df.reset_index()\n",
+    "\n",
+    "# Extract only the year from the 'date' column\n",
+    "df['year'] = pd.to_datetime(df['date']).dt.year\n",
+    "\n",
+    "# Drop the 'date' column and sort by 'year'\n",
+    "df = df.drop(columns=['date'])\n",
+    "df = df.sort_values(by=['year'])\n",
+    "\n",
+    "# Display the data\n",
+    "print(df)\n",
+    "\n",
+    "# Save the output as an Excel file for Kaggle output\n",
+    "df.to_excel('/kaggle/working/F Trade_percent_of_GDP_2010_2019.xlsx')  # Save to Kaggle output\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "49fae83e",
+   "metadata": {
+    "papermill": {
+     "duration": 0.005173,
+     "end_time": "2025-02-01T13:20:30.132317",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.127144",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Trade openness for `Eastern european` countries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "645362ef",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:30.145052Z",
+     "iopub.status.busy": "2025-02-01T13:20:30.144614Z",
+     "iopub.status.idle": "2025-02-01T13:20:30.184542Z",
+     "shell.execute_reply": "2025-02-01T13:20:30.183290Z"
+    },
+    "papermill": {
+     "duration": 0.048559,
+     "end_time": "2025-02-01T13:20:30.186365",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.137806",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "      country  Trade (% of GDP)  year\n",
+      "89     Sweden         85.091049  2010\n",
+      "49    Iceland         93.646398  2010\n",
+      "39    Ireland        189.863838  2010\n",
+      "59  Lithuania        131.626507  2010\n",
+      "29    Finland         75.461209  2010\n",
+      "..        ...               ...   ...\n",
+      "30    Ireland        249.745766  2019\n",
+      "60     Latvia        125.291632  2019\n",
+      "40    Iceland         82.862746  2019\n",
+      "80     Sweden         92.521083  2019\n",
+      "0     Denmark        111.891475  2019\n",
+      "\n",
+      "[90 rows x 3 columns]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# List of countries to fetch data for (using ISO 3166-1 alpha-3 country codes)\n",
+    "countries = ['DNK', 'EST', 'FIN', 'ISL', 'IRL', 'LVA', 'LTU', 'NOR', 'SWE']\n",
+    "\n",
+    "# Indicator for trade (% of GDP)\n",
+    "indicator = {'NE.TRD.GNFS.ZS': 'Trade (% of GDP)'}\n",
+    "\n",
+    "# Define the start and end dates\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Fetch the data using wbdata\n",
+    "df = wbdata.get_dataframe(\n",
+    "    indicator, \n",
+    "    country=countries, \n",
+    "    date=(start_date, end_date)  # Use 'date' instead of 'data_date'\n",
+    ")\n",
+    "\n",
+    "# Reset the index to have separate columns for 'country' and 'date'\n",
+    "df = df.reset_index()\n",
+    "\n",
+    "# Extract only the year from the 'date' column\n",
+    "df['year'] = pd.to_datetime(df['date']).dt.year\n",
+    "\n",
+    "# Drop the 'date' column and sort by 'year'\n",
+    "df = df.drop(columns=['date'])\n",
+    "df = df.sort_values(by=['year'])\n",
+    "\n",
+    "# Display the data\n",
+    "print(df)\n",
+    "\n",
+    "# Save the output as an Excel file for Kaggle output\n",
+    "df.to_excel('/kaggle/working/F Trade_percent_of_GDP_2010_2019.xlsx')  # Save to Kaggle output\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3b8a8f13",
+   "metadata": {
+    "papermill": {
+     "duration": 0.005224,
+     "end_time": "2025-02-01T13:20:30.197255",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.192031",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Trade openness for `Southern European` countries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "1ff54afe",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:30.209770Z",
+     "iopub.status.busy": "2025-02-01T13:20:30.209417Z",
+     "iopub.status.idle": "2025-02-01T13:20:30.425544Z",
+     "shell.execute_reply": "2025-02-01T13:20:30.424397Z"
+    },
+    "papermill": {
+     "duration": 0.224587,
+     "end_time": "2025-02-01T13:20:30.427658",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.203071",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "                    country  Trade (% of GDP)  year\n",
+      "149                Slovenia        128.606575  2010\n",
+      "29   Bosnia and Herzegovina         80.968216  2010\n",
+      "59                   Greece         50.922517  2010\n",
+      "49                    Spain         52.693370  2010\n",
+      "129              San Marino               NaN  2010\n",
+      "..                      ...               ...   ...\n",
+      "90                    Malta        233.070644  2019\n",
+      "70                    Italy         58.694190  2019\n",
+      "80          North Macedonia        138.576232  2019\n",
+      "20   Bosnia and Herzegovina         94.516128  2019\n",
+      "0                   Albania         75.382160  2019\n",
+      "\n",
+      "[150 rows x 3 columns]\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_large_values = (abs_vals > 1e6).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
+     ]
+    }
+   ],
+   "source": [
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# List of countries to fetch data for (using ISO 3166-1 alpha-3 country codes)\n",
+    "countries = ['ALB', 'AND', 'BIH', 'HRV', 'CYP', 'GRC', 'ITA', 'MLT', 'MNE', 'MKD', 'PRT', 'SMR', 'SRB', 'SVN', 'ESP']\n",
+    "\n",
+    "# Indicator for trade (% of GDP)\n",
+    "indicator = {'NE.TRD.GNFS.ZS': 'Trade (% of GDP)'}\n",
+    "\n",
+    "# Define the start and end dates\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Fetch the data using wbdata\n",
+    "df = wbdata.get_dataframe(\n",
+    "    indicator, \n",
+    "    country=countries, \n",
+    "    date=(start_date, end_date)  # Use 'date' instead of 'data_date'\n",
+    ")\n",
+    "\n",
+    "# Reset the index to have separate columns for 'country' and 'date'\n",
+    "df = df.reset_index()\n",
+    "\n",
+    "# Extract only the year from the 'date' column\n",
+    "df['year'] = pd.to_datetime(df['date']).dt.year\n",
+    "\n",
+    "# Drop the 'date' column and sort by 'year'\n",
+    "df = df.drop(columns=['date'])\n",
+    "df = df.sort_values(by=['year'])\n",
+    "\n",
+    "# Display the data\n",
+    "print(df)\n",
+    "\n",
+    "# Save the output as an Excel file for Kaggle output\n",
+    "df.to_excel('/kaggle/working/SE Trade_percent_of_GDP_2010_2019.xlsx')  # Save to Kaggle output\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b6e46126",
+   "metadata": {
+    "papermill": {
+     "duration": 0.005407,
+     "end_time": "2025-02-01T13:20:30.438911",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.433504",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Trade openness for `Central Europe` countries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "3499780d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:30.452242Z",
+     "iopub.status.busy": "2025-02-01T13:20:30.451862Z",
+     "iopub.status.idle": "2025-02-01T13:20:30.638669Z",
+     "shell.execute_reply": "2025-02-01T13:20:30.637295Z"
+    },
+    "papermill": {
+     "duration": 0.196105,
+     "end_time": "2025-02-01T13:20:30.640605",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.444500",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "          country  Trade (% of GDP)  year\n",
+      "89       Slovenia        128.606575  2010\n",
+      "49        Hungary        157.464914  2010\n",
+      "39        Germany         73.862641  2010\n",
+      "59  Liechtenstein               NaN  2010\n",
+      "29        Czechia        126.756480  2010\n",
+      "..            ...               ...   ...\n",
+      "30        Germany         79.133747  2019\n",
+      "60         Poland        101.581034  2019\n",
+      "40        Hungary        160.751343  2019\n",
+      "80       Slovenia        160.044276  2019\n",
+      "0         Austria        108.207285  2019\n",
+      "\n",
+      "[90 rows x 3 columns]\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_large_values = (abs_vals > 1e6).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
+     ]
+    }
+   ],
+   "source": [
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# List of countries to fetch data for (using ISO 3166-1 alpha-3 country codes)\n",
+    "countries = ['AUT', 'CZE', 'DEU', 'HUN', 'LIE', 'POL', 'SVK', 'SVN', 'CHE']\n",
+    "\n",
+    "# Indicator for trade (% of GDP)\n",
+    "indicator = {'NE.TRD.GNFS.ZS': 'Trade (% of GDP)'}\n",
+    "\n",
+    "# Define the start and end dates\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Fetch the data using wbdata\n",
+    "df = wbdata.get_dataframe(\n",
+    "    indicator, \n",
+    "    country=countries, \n",
+    "    date=(start_date, end_date)  # Use 'date' instead of 'data_date'\n",
+    ")\n",
+    "\n",
+    "# Reset the index to have separate columns for 'country' and 'date'\n",
+    "df = df.reset_index()\n",
+    "\n",
+    "# Extract only the year from the 'date' column\n",
+    "df['year'] = pd.to_datetime(df['date']).dt.year\n",
+    "\n",
+    "# Drop the 'date' column and sort by 'year'\n",
+    "df = df.drop(columns=['date'])\n",
+    "df = df.sort_values(by=['year'])\n",
+    "\n",
+    "# Display the data\n",
+    "print(df)\n",
+    "\n",
+    "# Save the output as an Excel file for Kaggle output\n",
+    "df.to_excel('/kaggle/working/CE Trade_percent_of_GDP_2010_2019.xlsx')  # Save to Kaggle output\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "496bc75e",
+   "metadata": {
+    "papermill": {
+     "duration": 0.005387,
+     "end_time": "2025-02-01T13:20:30.651771",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.646384",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Trade openness for `Southeastern Europe (Balkans)` countries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "362ec65e",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-01T13:20:30.664437Z",
+     "iopub.status.busy": "2025-02-01T13:20:30.664101Z",
+     "iopub.status.idle": "2025-02-01T13:20:30.880612Z",
+     "shell.execute_reply": "2025-02-01T13:20:30.879323Z"
+    },
+    "papermill": {
+     "duration": 0.225335,
+     "end_time": "2025-02-01T13:20:30.882817",
+     "exception": false,
+     "start_time": "2025-02-01T13:20:30.657482",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "             country  Trade (% of GDP)  year\n",
+      "109           Kosovo         82.177480  2010\n",
+      "49           Croatia         72.638657  2010\n",
+      "69        Montenegro         99.780326  2010\n",
+      "39            Greece         50.922517  2010\n",
+      "79           Romania         69.954935  2010\n",
+      "..               ...               ...   ...\n",
+      "40           Croatia        101.382013  2019\n",
+      "70           Romania         84.367712  2019\n",
+      "50   North Macedonia        138.576232  2019\n",
+      "10          Bulgaria        125.029963  2019\n",
+      "0            Albania         75.382160  2019\n",
+      "\n",
+      "[110 rows x 3 columns]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# List of countries to fetch data for (using ISO 3166-1 alpha-3 country codes)\n",
+    "countries = ['ALB', 'BIH', 'BGR', 'HRV', 'XKX', 'MNE', 'MKD', 'ROU', 'SRB', 'SVN', 'GRC']\n",
+    "\n",
+    "# Indicator for trade (% of GDP)\n",
+    "indicator = {'NE.TRD.GNFS.ZS': 'Trade (% of GDP)'}\n",
+    "\n",
+    "# Define the start and end dates\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Fetch the data using wbdata\n",
+    "df = wbdata.get_dataframe(\n",
+    "    indicator, \n",
+    "    country=countries, \n",
+    "    date=(start_date, end_date)  # Use 'date' instead of 'data_date'\n",
+    ")\n",
+    "\n",
+    "# Reset the index to have separate columns for 'country' and 'date'\n",
+    "df = df.reset_index()\n",
+    "\n",
+    "# Extract only the year from the 'date' column\n",
+    "df['year'] = pd.to_datetime(df['date']).dt.year\n",
+    "\n",
+    "# Drop the 'date' column and sort by 'year'\n",
+    "df = df.drop(columns=['date'])\n",
+    "df = df.sort_values(by=['year'])\n",
+    "\n",
+    "# Display the data\n",
+    "print(df)\n",
+    "\n",
+    "# Save the output as an Excel file for Kaggle output\n",
+    "df.to_excel('/kaggle/working/SCE Trade_percent_of_GDP_2010_2019.xlsx')  # Save to Kaggle output\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "none",
+   "dataSources": [],
+   "dockerImageVersionId": 30839,
+   "isGpuEnabled": false,
+   "isInternetEnabled": true,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 32.179023,
+   "end_time": "2025-02-01T13:20:31.611098",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2025-02-01T13:19:59.432075",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
