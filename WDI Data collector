@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "1eb58abd",
+   "id": "1a31f750",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:02.342692Z",
-     "iopub.status.busy": "2025-02-01T13:20:02.342216Z",
-     "iopub.status.idle": "2025-02-01T13:20:03.448181Z",
-     "shell.execute_reply": "2025-02-01T13:20:03.446945Z"
+     "iopub.execute_input": "2025-02-03T10:28:24.897280Z",
+     "iopub.status.busy": "2025-02-03T10:28:24.896844Z",
+     "iopub.status.idle": "2025-02-03T10:28:25.900869Z",
+     "shell.execute_reply": "2025-02-03T10:28:25.899553Z"
     },
     "papermill": {
-     "duration": 1.11403,
-     "end_time": "2025-02-01T13:20:03.450516",
+     "duration": 1.0127,
+     "end_time": "2025-02-03T10:28:25.903022",
      "exception": false,
-     "start_time": "2025-02-01T13:20:02.336486",
+     "start_time": "2025-02-03T10:28:24.890322",
      "status": "completed"
     },
     "tags": []
@@ -45,13 +45,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4069d3d0",
+   "id": "03d6a6be",
    "metadata": {
     "papermill": {
-     "duration": 0.003405,
-     "end_time": "2025-02-01T13:20:03.458191",
+     "duration": 0.004424,
+     "end_time": "2025-02-03T10:28:25.912497",
      "exception": false,
-     "start_time": "2025-02-01T13:20:03.454786",
+     "start_time": "2025-02-03T10:28:25.908073",
      "status": "completed"
     },
     "tags": []
@@ -63,19 +63,20 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "4ff7c8f2",
+   "id": "4f7ffd30",
    "metadata": {
+    "_kg_hide-input": true,
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:03.466926Z",
-     "iopub.status.busy": "2025-02-01T13:20:03.466360Z",
-     "iopub.status.idle": "2025-02-01T13:20:28.342427Z",
-     "shell.execute_reply": "2025-02-01T13:20:28.340684Z"
+     "iopub.execute_input": "2025-02-03T10:28:25.923338Z",
+     "iopub.status.busy": "2025-02-03T10:28:25.922786Z",
+     "iopub.status.idle": "2025-02-03T10:28:51.551987Z",
+     "shell.execute_reply": "2025-02-03T10:28:51.550568Z"
     },
     "papermill": {
-     "duration": 24.882716,
-     "end_time": "2025-02-01T13:20:28.344519",
+     "duration": 25.636804,
+     "end_time": "2025-02-03T10:28:51.553992",
      "exception": false,
-     "start_time": "2025-02-01T13:20:03.461803",
+     "start_time": "2025-02-03T10:28:25.917188",
      "status": "completed"
     },
     "tags": []
@@ -128,7 +129,7 @@
       "Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)\r\n",
       "Downloading backoff-2.2.1-py3-none-any.whl (15 kB)\r\n",
       "Downloading dateparser-1.2.0-py2.py3-none-any.whl (294 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m295.0/295.0 kB\u001b[0m \u001b[31m11.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m295.0/295.0 kB\u001b[0m \u001b[31m5.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading decorator-5.1.1-py3-none-any.whl (9.1 kB)\r\n",
       "Downloading shelved_cache-0.3.1-py3-none-any.whl (7.8 kB)\r\n",
       "Downloading tabulate-0.8.10-py3-none-any.whl (29 kB)\r\n",
@@ -151,18 +152,386 @@
     }
    ],
    "source": [
-    "pip install wbdata pandas\n"
+    "pip install wbdata pandas"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "397e73c6",
+   "id": "6490a1e2",
    "metadata": {
     "papermill": {
-     "duration": 0.004826,
-     "end_time": "2025-02-01T13:20:28.355127",
+     "duration": 0.005715,
+     "end_time": "2025-02-03T10:28:51.566093",
      "exception": false,
-     "start_time": "2025-02-01T13:20:28.350301",
+     "start_time": "2025-02-03T10:28:51.560378",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### One tap Go Code"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "8bf0ad3f",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T10:28:51.579946Z",
+     "iopub.status.busy": "2025-02-03T10:28:51.579505Z",
+     "iopub.status.idle": "2025-02-03T10:28:57.938674Z",
+     "shell.execute_reply": "2025-02-03T10:28:57.937178Z"
+    },
+    "papermill": {
+     "duration": 6.368645,
+     "end_time": "2025-02-03T10:28:57.940741",
+     "exception": false,
+     "start_time": "2025-02-03T10:28:51.572096",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Requirement already satisfied: wbdata in /usr/local/lib/python3.10/dist-packages (1.0.0)\r\n",
+      "Requirement already satisfied: appdirs<2.0,>=1.4 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.4.4)\r\n",
+      "Requirement already satisfied: backoff<3.0.0,>=2.2.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.2.1)\r\n",
+      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.5.0)\r\n",
+      "Requirement already satisfied: dateparser<2.0.0,>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.2.0)\r\n",
+      "Requirement already satisfied: decorator<6.0.0,>=5.1.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.1.1)\r\n",
+      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.32.3)\r\n",
+      "Requirement already satisfied: shelved-cache<0.4.0,>=0.3.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.3.1)\r\n",
+      "Requirement already satisfied: tabulate<0.9.0,>=0.8.5 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.8.10)\r\n",
+      "Requirement already satisfied: python-dateutil in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2.8.2)\r\n",
+      "Requirement already satisfied: pytz in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.2)\r\n",
+      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27 in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
+      "Requirement already satisfied: tzlocal in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.2)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.0)\r\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2.2.3)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2024.12.14)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil->dateparser<2.0.0,>=1.2.0->wbdata) (1.17.0)\r\n",
+      "Energy use per capita data saved to /kaggle/working/Energy_Use_Per_Capita_2010_2019.xlsx\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Install wbdata if not already installed\n",
+    "!pip install wbdata\n",
+    "\n",
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# Define country groups\n",
+    "regions = {\n",
+    "    \"Western Europe\": ['AUT', 'BEL', 'FRA', 'DEU', 'LIE', 'LUX', 'MCO', 'NLD', 'CHE', 'GBR', 'IRL'],\n",
+    "    \"Northern Europe\": ['DNK', 'EST', 'FIN', 'ISL', 'LVA', 'LTU', 'NOR', 'SWE'],\n",
+    "    \"Southern Europe\": ['ALB', 'AND', 'BIH', 'HRV', 'CYP', 'GRC', 'ITA', 'MLT', 'MNE', 'MKD', 'PRT', 'SMR', 'SRB', 'SVN', 'ESP'],\n",
+    "    \"Central Europe\": ['AUT', 'CZE', 'DEU', 'HUN', 'LIE', 'POL', 'SVK', 'SVN', 'CHE'],\n",
+    "    \"Southeastern Europe\": ['ALB', 'BIH', 'BGR', 'HRV', 'MNE', 'MKD', 'ROU', 'SRB', 'SVN', 'GRC']\n",
+    "}\n",
+    "\n",
+    "# Indicator for Energy use per capita\n",
+    "indicator = {'EG.USE.PCAP.KG.OE': 'Energy use (kg of oil equivalent per capita)'}\n",
+    "\n",
+    "# Define the start and end years\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Define output file path for Kaggle\n",
+    "output_path = \"/kaggle/working/Energy_Use_Per_Capita_2010_2019.xlsx\"\n",
+    "\n",
+    "# Create an Excel writer\n",
+    "with pd.ExcelWriter(output_path) as writer:\n",
+    "    sheet_written = False  # Flag to check if at least one sheet is written\n",
+    "    for region, countries in regions.items():\n",
+    "        # Fetch data for the given countries\n",
+    "        df = wbdata.get_dataframe(\n",
+    "            indicator, \n",
+    "            country=countries, \n",
+    "            date=(start_date, end_date)\n",
+    "        ).reset_index()\n",
+    "        \n",
+    "        # If the dataframe is empty, skip writing it\n",
+    "        if df.empty:\n",
+    "            print(f\"Skipping {region} (No data available).\")\n",
+    "            continue\n",
+    "        \n",
+    "        # Convert 'date' column to datetime objects if it's not already\n",
+    "        if not pd.api.types.is_datetime64_any_dtype(df['date']):\n",
+    "            df['date'] = pd.to_datetime(df['date'])\n",
+    "            \n",
+    "        # Extract only the year\n",
+    "        df['year'] = df['date'].dt.year\n",
+    "        \n",
+    "        # Drop the 'date' column and sort by 'year'\n",
+    "        df = df.drop(columns=['date']).sort_values(by=['year'])\n",
+    "        \n",
+    "        # Save data to a sheet\n",
+    "        df.to_excel(writer, sheet_name=region, index=False)\n",
+    "        sheet_written = True  # Mark that at least one sheet is written\n",
+    "\n",
+    "    # If no data was written, create a dummy sheet to prevent the error\n",
+    "    if not sheet_written:\n",
+    "        df = pd.DataFrame({\"Message\": [\"No data available for any region.\"]})\n",
+    "        df.to_excel(writer, sheet_name=\"No Data\", index=False)\n",
+    "\n",
+    "print(f\"Energy use per capita data saved to {output_path}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9260a8ae",
+   "metadata": {
+    "papermill": {
+     "duration": 0.006605,
+     "end_time": "2025-02-03T10:28:57.954097",
+     "exception": false,
+     "start_time": "2025-02-03T10:28:57.947492",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Concept 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "ac5523f9",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T10:28:57.968255Z",
+     "iopub.status.busy": "2025-02-03T10:28:57.967622Z",
+     "iopub.status.idle": "2025-02-03T10:28:57.994667Z",
+     "shell.execute_reply": "2025-02-03T10:28:57.993520Z"
+    },
+    "papermill": {
+     "duration": 0.036208,
+     "end_time": "2025-02-03T10:28:57.996626",
+     "exception": false,
+     "start_time": "2025-02-03T10:28:57.960418",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            country  Energy use (kg of oil equivalent per capita)  year\n",
+      "109     Netherlands                                   5025.320916  2010\n",
+      "49           France                                   4016.928005  2010\n",
+      "69          Ireland                                   3152.003605  2010\n",
+      "39          Germany                                   3997.079421  2010\n",
+      "79    Liechtenstein                                           NaN  2010\n",
+      "..              ...                                           ...   ...\n",
+      "40           France                                           NaN  2019\n",
+      "70    Liechtenstein                                           NaN  2019\n",
+      "50   United Kingdom                                           NaN  2019\n",
+      "10          Belgium                                           NaN  2019\n",
+      "0           Austria                                           NaN  2019\n",
+      "\n",
+      "[110 rows x 3 columns]\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_large_values = (abs_vals > 1e6).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
+      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
+     ]
+    }
+   ],
+   "source": [
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# List of countries to fetch data for (using ISO 3166-1 alpha-3 country codes)\n",
+    "countries = ['AUT', 'BEL', 'FRA', 'DEU', 'LIE', 'LUX', 'MCO', 'NLD', 'CHE', 'GBR', 'IRL']\n",
+    "\n",
+    "# Indicator for Energy use (kg of oil equivalent per capita)\n",
+    "indicator = {'EG.USE.PCAP.KG.OE': 'Energy use (kg of oil equivalent per capita)'}\n",
+    "\n",
+    "# Define the start and end dates\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Fetch the data using wbdata\n",
+    "df = wbdata.get_dataframe(\n",
+    "    indicator, \n",
+    "    country=countries, \n",
+    "    date=(start_date, end_date)  # Use 'date' instead of 'data_date'\n",
+    ")\n",
+    "\n",
+    "# Reset the index to have separate columns for 'country' and 'date'\n",
+    "df = df.reset_index()\n",
+    "\n",
+    "# Extract only the year from the 'date' column\n",
+    "df['year'] = pd.to_datetime(df['date']).dt.year\n",
+    "\n",
+    "# Drop the 'date' column and sort by 'year'\n",
+    "df = df.drop(columns=['date'])\n",
+    "df = df.sort_values(by=['year'])\n",
+    "\n",
+    "# Display the data\n",
+    "print(df)\n",
+    "\n",
+    "# Save the output as an Excel file for Kaggle output\n",
+    "#df.to_excel('/kaggle/working/Energy_use_per_capita_2010_2019.xlsx')  # Save to Kaggle output\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b09c4396",
+   "metadata": {
+    "papermill": {
+     "duration": 0.006205,
+     "end_time": "2025-02-03T10:28:58.009509",
+     "exception": false,
+     "start_time": "2025-02-03T10:28:58.003304",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Experimental one tap code"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "273e9aa5",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T10:28:58.024189Z",
+     "iopub.status.busy": "2025-02-03T10:28:58.023731Z",
+     "iopub.status.idle": "2025-02-03T10:29:02.522632Z",
+     "shell.execute_reply": "2025-02-03T10:29:02.521259Z"
+    },
+    "papermill": {
+     "duration": 4.508715,
+     "end_time": "2025-02-03T10:29:02.524672",
+     "exception": false,
+     "start_time": "2025-02-03T10:28:58.015957",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Requirement already satisfied: wbdata in /usr/local/lib/python3.10/dist-packages (1.0.0)\r\n",
+      "Requirement already satisfied: appdirs<2.0,>=1.4 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.4.4)\r\n",
+      "Requirement already satisfied: backoff<3.0.0,>=2.2.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.2.1)\r\n",
+      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.5.0)\r\n",
+      "Requirement already satisfied: dateparser<2.0.0,>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.2.0)\r\n",
+      "Requirement already satisfied: decorator<6.0.0,>=5.1.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.1.1)\r\n",
+      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.32.3)\r\n",
+      "Requirement already satisfied: shelved-cache<0.4.0,>=0.3.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.3.1)\r\n",
+      "Requirement already satisfied: tabulate<0.9.0,>=0.8.5 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.8.10)\r\n",
+      "Requirement already satisfied: python-dateutil in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2.8.2)\r\n",
+      "Requirement already satisfied: pytz in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.2)\r\n",
+      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27 in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
+      "Requirement already satisfied: tzlocal in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.2)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.0)\r\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2.2.3)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2024.12.14)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil->dateparser<2.0.0,>=1.2.0->wbdata) (1.17.0)\r\n",
+      "Energy use per capita data saved to /kaggle/working/Energy_Use_Per_Capita_2010_2019.xlsx\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Install wbdata if not already installed\n",
+    "!pip install wbdata\n",
+    "\n",
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# Define country groups\n",
+    "regions = {\n",
+    "    \"Western Europe\": ['AUT', 'BEL', 'FRA', 'DEU', 'LIE', 'LUX', 'MCO', 'NLD', 'CHE', 'GBR', 'IRL'],\n",
+    "    \"Northern Europe\": ['DNK', 'EST', 'FIN', 'ISL', 'LVA', 'LTU', 'NOR', 'SWE'],\n",
+    "    \"Southern Europe\": ['ALB', 'AND', 'BIH', 'HRV', 'CYP', 'GRC', 'ITA', 'MLT', 'MNE', 'MKD', 'PRT', 'SMR', 'SRB', 'SVN', 'ESP'],\n",
+    "    \"Central Europe\": ['AUT', 'CZE', 'DEU', 'HUN', 'LIE', 'POL', 'SVK', 'SVN', 'CHE'],\n",
+    "    \"Southeastern Europe\": ['ALB', 'BIH', 'BGR', 'HRV', 'MNE', 'MKD', 'ROU', 'SRB', 'SVN', 'GRC']\n",
+    "}\n",
+    "\n",
+    "# Indicator for Energy use per capita\n",
+    "indicator = {'EG.USE.PCAP.KG.OE': 'Energy use (kg of oil equivalent per capita)'}\n",
+    "\n",
+    "# Define the start and end years\n",
+    "start_date = datetime(2010, 1, 1)\n",
+    "end_date = datetime(2019, 12, 31)\n",
+    "\n",
+    "# Define output file path for Kaggle\n",
+    "output_path = \"/kaggle/working/Energy_Use_Per_Capita_2010_2019.xlsx\"\n",
+    "\n",
+    "# Create an Excel writer\n",
+    "with pd.ExcelWriter(output_path) as writer:\n",
+    "    sheet_written = False  # Flag to check if at least one sheet is written\n",
+    "    for region, countries in regions.items():\n",
+    "        # Fetch data for the given countries\n",
+    "        df = wbdata.get_dataframe(\n",
+    "            indicator, \n",
+    "            country=countries, \n",
+    "            date=(start_date, end_date)\n",
+    "        ).reset_index()\n",
+    "        \n",
+    "        # If the dataframe is empty, skip writing it\n",
+    "        if df.empty:\n",
+    "            print(f\"Skipping {region} (No data available).\")\n",
+    "            continue\n",
+    "        \n",
+    "        # Convert 'date' column to datetime objects if it's not already\n",
+    "        if not pd.api.types.is_datetime64_any_dtype(df['date']):\n",
+    "            df['date'] = pd.to_datetime(df['date'])\n",
+    "            \n",
+    "        # Extract only the year\n",
+    "        df['year'] = df['date'].dt.year\n",
+    "        \n",
+    "        # Drop the 'date' column and sort by 'year'\n",
+    "        df = df.drop(columns=['date']).sort_values(by=['year'])\n",
+    "        \n",
+    "        # Save data to a sheet\n",
+    "        df.to_excel(writer, sheet_name=region, index=False)\n",
+    "        sheet_written = True  # Mark that at least one sheet is written\n",
+    "\n",
+    "    # If no data was written, create a dummy sheet to prevent the error\n",
+    "    if not sheet_written:\n",
+    "        df = pd.DataFrame({\"Message\": [\"No data available for any region.\"]})\n",
+    "        df.to_excel(writer, sheet_name=\"No Data\", index=False)\n",
+    "\n",
+    "print(f\"Energy use per capita data saved to {output_path}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f558bfe5",
+   "metadata": {
+    "papermill": {
+     "duration": 0.006323,
+     "end_time": "2025-02-03T10:29:02.538193",
+     "exception": false,
+     "start_time": "2025-02-03T10:29:02.531870",
      "status": "completed"
     },
     "tags": []
@@ -173,20 +542,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
-   "id": "7ceba2a7",
+   "execution_count": 6,
+   "id": "94799f55",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:28.366687Z",
-     "iopub.status.busy": "2025-02-01T13:20:28.366351Z",
-     "iopub.status.idle": "2025-02-01T13:20:29.878118Z",
-     "shell.execute_reply": "2025-02-01T13:20:29.876942Z"
+     "iopub.execute_input": "2025-02-03T10:29:02.553890Z",
+     "iopub.status.busy": "2025-02-03T10:29:02.553491Z",
+     "iopub.status.idle": "2025-02-03T10:29:02.871413Z",
+     "shell.execute_reply": "2025-02-03T10:29:02.869911Z"
     },
     "papermill": {
-     "duration": 1.52008,
-     "end_time": "2025-02-01T13:20:29.880298",
+     "duration": 0.328031,
+     "end_time": "2025-02-03T10:29:02.873443",
      "exception": false,
-     "start_time": "2025-02-01T13:20:28.360218",
+     "start_time": "2025-02-03T10:29:02.545412",
      "status": "completed"
     },
     "tags": []
@@ -254,13 +623,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "602a4791",
+   "id": "93d769f7",
    "metadata": {
     "papermill": {
-     "duration": 0.004949,
-     "end_time": "2025-02-01T13:20:29.891051",
+     "duration": 0.006351,
+     "end_time": "2025-02-03T10:29:02.886711",
      "exception": false,
-     "start_time": "2025-02-01T13:20:29.886102",
+     "start_time": "2025-02-03T10:29:02.880360",
      "status": "completed"
     },
     "tags": []
@@ -271,13 +640,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f351c76b",
+   "id": "13f89941",
    "metadata": {
     "papermill": {
-     "duration": 0.004823,
-     "end_time": "2025-02-01T13:20:29.901069",
+     "duration": 0.006314,
+     "end_time": "2025-02-03T10:29:02.899701",
      "exception": false,
-     "start_time": "2025-02-01T13:20:29.896246",
+     "start_time": "2025-02-03T10:29:02.893387",
      "status": "completed"
     },
     "tags": []
@@ -288,20 +657,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
-   "id": "8e423fa5",
+   "execution_count": 7,
+   "id": "6c33c606",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:29.912800Z",
-     "iopub.status.busy": "2025-02-01T13:20:29.912202Z",
-     "iopub.status.idle": "2025-02-01T13:20:30.120103Z",
-     "shell.execute_reply": "2025-02-01T13:20:30.118872Z"
+     "iopub.execute_input": "2025-02-03T10:29:02.914884Z",
+     "iopub.status.busy": "2025-02-03T10:29:02.914476Z",
+     "iopub.status.idle": "2025-02-03T10:29:03.041151Z",
+     "shell.execute_reply": "2025-02-03T10:29:03.039691Z"
     },
     "papermill": {
-     "duration": 0.215529,
-     "end_time": "2025-02-01T13:20:30.121611",
+     "duration": 0.136264,
+     "end_time": "2025-02-03T10:29:03.042911",
      "exception": false,
-     "start_time": "2025-02-01T13:20:29.906082",
+     "start_time": "2025-02-03T10:29:02.906647",
      "status": "completed"
     },
     "tags": []
@@ -381,13 +750,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "49fae83e",
+   "id": "4c3f7a20",
    "metadata": {
     "papermill": {
-     "duration": 0.005173,
-     "end_time": "2025-02-01T13:20:30.132317",
+     "duration": 0.006709,
+     "end_time": "2025-02-03T10:29:03.056538",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.127144",
+     "start_time": "2025-02-03T10:29:03.049829",
      "status": "completed"
     },
     "tags": []
@@ -398,20 +767,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
-   "id": "645362ef",
+   "execution_count": 8,
+   "id": "640f43d4",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:30.145052Z",
-     "iopub.status.busy": "2025-02-01T13:20:30.144614Z",
-     "iopub.status.idle": "2025-02-01T13:20:30.184542Z",
-     "shell.execute_reply": "2025-02-01T13:20:30.183290Z"
+     "iopub.execute_input": "2025-02-03T10:29:03.071899Z",
+     "iopub.status.busy": "2025-02-03T10:29:03.071527Z",
+     "iopub.status.idle": "2025-02-03T10:29:03.110477Z",
+     "shell.execute_reply": "2025-02-03T10:29:03.109011Z"
     },
     "papermill": {
-     "duration": 0.048559,
-     "end_time": "2025-02-01T13:20:30.186365",
+     "duration": 0.048968,
+     "end_time": "2025-02-03T10:29:03.112343",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.137806",
+     "start_time": "2025-02-03T10:29:03.063375",
      "status": "completed"
     },
     "tags": []
@@ -479,13 +848,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3b8a8f13",
+   "id": "d0bb56d8",
    "metadata": {
     "papermill": {
-     "duration": 0.005224,
-     "end_time": "2025-02-01T13:20:30.197255",
+     "duration": 0.006491,
+     "end_time": "2025-02-03T10:29:03.126154",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.192031",
+     "start_time": "2025-02-03T10:29:03.119663",
      "status": "completed"
     },
     "tags": []
@@ -496,20 +865,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
-   "id": "1ff54afe",
+   "execution_count": 9,
+   "id": "8bc76375",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:30.209770Z",
-     "iopub.status.busy": "2025-02-01T13:20:30.209417Z",
-     "iopub.status.idle": "2025-02-01T13:20:30.425544Z",
-     "shell.execute_reply": "2025-02-01T13:20:30.424397Z"
+     "iopub.execute_input": "2025-02-03T10:29:03.141861Z",
+     "iopub.status.busy": "2025-02-03T10:29:03.141486Z",
+     "iopub.status.idle": "2025-02-03T10:29:03.459438Z",
+     "shell.execute_reply": "2025-02-03T10:29:03.458194Z"
     },
     "papermill": {
-     "duration": 0.224587,
-     "end_time": "2025-02-01T13:20:30.427658",
+     "duration": 0.327827,
+     "end_time": "2025-02-03T10:29:03.461259",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.203071",
+     "start_time": "2025-02-03T10:29:03.133432",
      "status": "completed"
     },
     "tags": []
@@ -589,13 +958,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b6e46126",
+   "id": "1fbbcd2f",
    "metadata": {
     "papermill": {
-     "duration": 0.005407,
-     "end_time": "2025-02-01T13:20:30.438911",
+     "duration": 0.006729,
+     "end_time": "2025-02-03T10:29:03.475367",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.433504",
+     "start_time": "2025-02-03T10:29:03.468638",
      "status": "completed"
     },
     "tags": []
@@ -606,20 +975,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
-   "id": "3499780d",
+   "execution_count": 10,
+   "id": "8bd3fbc9",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:30.452242Z",
-     "iopub.status.busy": "2025-02-01T13:20:30.451862Z",
-     "iopub.status.idle": "2025-02-01T13:20:30.638669Z",
-     "shell.execute_reply": "2025-02-01T13:20:30.637295Z"
+     "iopub.execute_input": "2025-02-03T10:29:03.490807Z",
+     "iopub.status.busy": "2025-02-03T10:29:03.490433Z",
+     "iopub.status.idle": "2025-02-03T10:29:03.772264Z",
+     "shell.execute_reply": "2025-02-03T10:29:03.770923Z"
     },
     "papermill": {
-     "duration": 0.196105,
-     "end_time": "2025-02-01T13:20:30.640605",
+     "duration": 0.291658,
+     "end_time": "2025-02-03T10:29:03.773974",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.444500",
+     "start_time": "2025-02-03T10:29:03.482316",
      "status": "completed"
     },
     "tags": []
@@ -699,13 +1068,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "496bc75e",
+   "id": "c262e2f6",
    "metadata": {
     "papermill": {
-     "duration": 0.005387,
-     "end_time": "2025-02-01T13:20:30.651771",
+     "duration": 0.006915,
+     "end_time": "2025-02-03T10:29:03.788377",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.646384",
+     "start_time": "2025-02-03T10:29:03.781462",
      "status": "completed"
     },
     "tags": []
@@ -716,20 +1085,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
-   "id": "362ec65e",
+   "execution_count": 11,
+   "id": "ef8f81d7",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-01T13:20:30.664437Z",
-     "iopub.status.busy": "2025-02-01T13:20:30.664101Z",
-     "iopub.status.idle": "2025-02-01T13:20:30.880612Z",
-     "shell.execute_reply": "2025-02-01T13:20:30.879323Z"
+     "iopub.execute_input": "2025-02-03T10:29:03.804289Z",
+     "iopub.status.busy": "2025-02-03T10:29:03.803914Z",
+     "iopub.status.idle": "2025-02-03T10:29:04.073970Z",
+     "shell.execute_reply": "2025-02-03T10:29:04.072619Z"
     },
     "papermill": {
-     "duration": 0.225335,
-     "end_time": "2025-02-01T13:20:30.882817",
+     "duration": 0.280196,
+     "end_time": "2025-02-03T10:29:04.075765",
      "exception": false,
-     "start_time": "2025-02-01T13:20:30.657482",
+     "start_time": "2025-02-03T10:29:03.795569",
      "status": "completed"
     },
     "tags": []
@@ -825,14 +1194,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 32.179023,
-   "end_time": "2025-02-01T13:20:31.611098",
+   "duration": 42.929797,
+   "end_time": "2025-02-03T10:29:04.805450",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-02-01T13:19:59.432075",
+   "start_time": "2025-02-03T10:28:21.875653",
    "version": "2.6.0"
   }
  },
