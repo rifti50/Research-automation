@@ -1,0 +1,827 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "95d6d12d",
+   "metadata": {
+    "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
+    "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:34.536870Z",
+     "iopub.status.busy": "2025-02-03T14:27:34.536426Z",
+     "iopub.status.idle": "2025-02-03T14:27:35.657829Z",
+     "shell.execute_reply": "2025-02-03T14:27:35.656743Z"
+    },
+    "papermill": {
+     "duration": 1.128747,
+     "end_time": "2025-02-03T14:27:35.660006",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:34.531259",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# This Python 3 environment comes with many helpful analytics libraries installed\n",
+    "# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python\n",
+    "# For example, here's several helpful packages to load\n",
+    "\n",
+    "import numpy as np # linear algebra\n",
+    "import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)\n",
+    "\n",
+    "# Input data files are available in the read-only \"../input/\" directory\n",
+    "# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory\n",
+    "\n",
+    "import os\n",
+    "for dirname, _, filenames in os.walk('/kaggle/input'):\n",
+    "    for filename in filenames:\n",
+    "        print(os.path.join(dirname, filename))\n",
+    "\n",
+    "# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using \"Save & Run All\" \n",
+    "# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "fad25341",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:35.668961Z",
+     "iopub.status.busy": "2025-02-03T14:27:35.668422Z",
+     "iopub.status.idle": "2025-02-03T14:27:43.655311Z",
+     "shell.execute_reply": "2025-02-03T14:27:43.654126Z"
+    },
+    "papermill": {
+     "duration": 7.993117,
+     "end_time": "2025-02-03T14:27:43.657203",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:35.664086",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Requirement already satisfied: pip in /usr/local/lib/python3.10/dist-packages (24.1.2)\r\n",
+      "Collecting pip\r\n",
+      "  Downloading pip-25.0-py3-none-any.whl.metadata (3.7 kB)\r\n",
+      "Downloading pip-25.0-py3-none-any.whl (1.8 MB)\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.8/1.8 MB\u001b[0m \u001b[31m21.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[?25hInstalling collected packages: pip\r\n",
+      "  Attempting uninstall: pip\r\n",
+      "    Found existing installation: pip 24.1.2\r\n",
+      "    Uninstalling pip-24.1.2:\r\n",
+      "      Successfully uninstalled pip-24.1.2\r\n",
+      "Successfully installed pip-25.0\r\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install --upgrade pip\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "143f7d31",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:43.667139Z",
+     "iopub.status.busy": "2025-02-03T14:27:43.666776Z",
+     "iopub.status.idle": "2025-02-03T14:27:48.224155Z",
+     "shell.execute_reply": "2025-02-03T14:27:48.222891Z"
+    },
+    "papermill": {
+     "duration": 4.564394,
+     "end_time": "2025-02-03T14:27:48.225961",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:43.661567",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting pipdeptree\r\n",
+      "  Downloading pipdeptree-2.25.0-py3-none-any.whl.metadata (15 kB)\r\n",
+      "Requirement already satisfied: packaging>=24.1 in /usr/local/lib/python3.10/dist-packages (from pipdeptree) (24.2)\r\n",
+      "Requirement already satisfied: pip>=24.2 in /usr/local/lib/python3.10/dist-packages (from pipdeptree) (25.0)\r\n",
+      "Downloading pipdeptree-2.25.0-py3-none-any.whl (32 kB)\r\n",
+      "Installing collected packages: pipdeptree\r\n",
+      "Successfully installed pipdeptree-2.25.0\r\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install pipdeptree\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0ebe4213",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004075,
+     "end_time": "2025-02-03T14:27:48.234603",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:48.230528",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Final Reasoning"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "d5d610ba",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:48.244951Z",
+     "iopub.status.busy": "2025-02-03T14:27:48.244587Z",
+     "iopub.status.idle": "2025-02-03T14:27:53.837748Z",
+     "shell.execute_reply": "2025-02-03T14:27:53.836504Z"
+    },
+    "papermill": {
+     "duration": 5.600837,
+     "end_time": "2025-02-03T14:27:53.839727",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:48.238890",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data covers years: 2010 to 2019\n",
+      "Countries retrieved: 27\n",
+      "File saved: energy_consumption_2010-2019.xlsx\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import requests\n",
+    "from io import StringIO\n",
+    "\n",
+    "dataset_id = \"sdg_07_10\"\n",
+    "\n",
+    "country_names = {\n",
+    "    'AT': 'Austria', 'BE': 'Belgium', 'FR': 'France', 'DE': 'Germany',\n",
+    "    'LI': 'Liechtenstein', 'LU': 'Luxembourg', 'NL': 'Netherlands',\n",
+    "    'CH': 'Switzerland', 'UK': 'United Kingdom', 'IE': 'Ireland',\n",
+    "    'DK': 'Denmark', 'EE': 'Estonia', 'FI': 'Finland', 'IS': 'Iceland',\n",
+    "    'LV': 'Latvia', 'LT': 'Lithuania', 'NO': 'Norway', 'SE': 'Sweden',\n",
+    "    'ES': 'Spain', 'EL': 'Greece', 'IT': 'Italy', 'MT': 'Malta',\n",
+    "    'PT': 'Portugal', 'SI': 'Slovenia', 'HR': 'Croatia', 'CY': 'Cyprus',\n",
+    "    'CZ': 'Czechia', 'HU': 'Hungary', 'PL': 'Poland', 'SK': 'Slovakia',\n",
+    "    'BG': 'Bulgaria', 'RO': 'Romania', 'RS': 'Serbia', 'ME': 'Montenegro',\n",
+    "    'MK': 'North Macedonia', 'AL': 'Albania'\n",
+    "}\n",
+    "\n",
+    "regions = {\n",
+    "    \"Western Europe\": ['AT', 'BE', 'FR', 'DE', 'LI', 'LU', 'NL', 'CH', 'UK', 'IE'],\n",
+    "    \"Northern Europe\": ['DK', 'EE', 'FI', 'IS', 'LV', 'LT', 'NO', 'SE'],\n",
+    "    \"Southern Europe\": ['ES', 'EL', 'IT', 'MT', 'PT', 'SI', 'HR', 'CY'],\n",
+    "    \"Central Europe\": ['CZ', 'HU', 'PL', 'SK'],\n",
+    "    \"Southeastern Europe\": ['BG', 'RO', 'RS', 'ME', 'MK', 'AL']\n",
+    "}\n",
+    "\n",
+    "all_country_codes = list({code for sublist in regions.values() for code in sublist})\n",
+    "\n",
+    "def fetch_eurostat_data():\n",
+    "    base_url = \"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data\"\n",
+    "    \n",
+    "    params = {\n",
+    "        \"format\": \"SDMX-CSV\",\n",
+    "        \"lang\": \"en\",\n",
+    "        \"unit\": \"MTOE\",\n",
+    "        \"geo\": \"+\".join(all_country_codes),\n",
+    "        \"time\": \"2010:2019\"  # Explicit time range filter\n",
+    "    }\n",
+    "    \n",
+    "    try:\n",
+    "        response = requests.get(f\"{base_url}/{dataset_id}\", params=params)\n",
+    "        response.raise_for_status()\n",
+    "        \n",
+    "        df = pd.read_csv(StringIO(response.text))\n",
+    "        \n",
+    "        # Convert year to integer and filter\n",
+    "        df = df.rename(columns={\n",
+    "            'geo': 'Country Code',\n",
+    "            'TIME_PERIOD': 'Year',\n",
+    "            'OBS_VALUE': 'Energy Consumption (MTOE)'\n",
+    "        })\n",
+    "        \n",
+    "        df['Year'] = df['Year'].astype(int)\n",
+    "        df = df[df['Year'].between(2010, 2019)]  # Double-check date range\n",
+    "        \n",
+    "        return df[['Country Code', 'Year', 'Energy Consumption (MTOE)']].dropna()\n",
+    "    \n",
+    "    except Exception as e:\n",
+    "        print(f\"Data fetch error: {str(e)}\")\n",
+    "        return None\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    try:\n",
+    "        energy_df = fetch_eurostat_data()\n",
+    "        \n",
+    "        if energy_df is not None and not energy_df.empty:\n",
+    "            # Add country names and validate\n",
+    "            energy_df['Country Name'] = energy_df['Country Code'].map(country_names)\n",
+    "            \n",
+    "            # Final validation\n",
+    "            print(f\"Data covers years: {energy_df['Year'].min()} to {energy_df['Year'].max()}\")\n",
+    "            print(f\"Countries retrieved: {energy_df['Country Name'].nunique()}\")\n",
+    "            \n",
+    "            # Save to Excel\n",
+    "            with pd.ExcelWriter('energy_consumption_2010-2019.xlsx') as writer:\n",
+    "                for region, codes in regions.items():\n",
+    "                    region_df = energy_df[energy_df['Country Code'].isin(codes)]\n",
+    "                    if not region_df.empty:\n",
+    "                        region_df[['Country Name', 'Year', 'Energy Consumption (MTOE)']]\\\n",
+    "                            .to_excel(writer, sheet_name=region, index=False)\n",
+    "            \n",
+    "            print(\"File saved: energy_consumption_2010-2019.xlsx\")\n",
+    "            \n",
+    "        else:\n",
+    "            print(\"No data retrieved\")\n",
+    "            \n",
+    "    except Exception as e:\n",
+    "        print(f\"Processing error: {str(e)}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "691534f5",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004317,
+     "end_time": "2025-02-03T14:27:53.848848",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:53.844531",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### 1st reasoning"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "f4712b20",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:53.859875Z",
+     "iopub.status.busy": "2025-02-03T14:27:53.859279Z",
+     "iopub.status.idle": "2025-02-03T14:27:54.487291Z",
+     "shell.execute_reply": "2025-02-03T14:27:54.486137Z"
+    },
+    "papermill": {
+     "duration": 0.635781,
+     "end_time": "2025-02-03T14:27:54.489210",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:53.853429",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data fetch error: module 'pandas.compat' has no attribute 'StringIO'\n",
+      "No data could be retrieved\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import requests\n",
+    "\n",
+    "# Correct dataset ID from the provided URL\n",
+    "dataset_id = \"sdg_07_10\"\n",
+    "\n",
+    "# Country regions (using Eurostat country codes)\n",
+    "regions = {\n",
+    "    \"Western Europe\": ['AT', 'BE', 'FR', 'DE', 'LI', 'LU', 'MC', 'NL', 'CH', 'UK', 'IE'],\n",
+    "    \"Northern Europe\": ['DK', 'EE', 'FI', 'IS', 'LV', 'LT', 'NO', 'SE'],\n",
+    "    \"Southern Europe\": ['AL', 'AD', 'BA', 'HR', 'CY', 'EL', 'IT', 'MT', 'ME', 'MK', 'PT', 'SM', 'RS', 'SI', 'ES'],\n",
+    "    \"Central Europe\": ['AT', 'CZ', 'DE', 'HU', 'LI', 'PL', 'SK', 'SI', 'CH'],\n",
+    "    \"Southeastern Europe\": ['AL', 'BA', 'BG', 'HR', 'ME', 'MK', 'RO', 'RS', 'SI', 'EL']\n",
+    "}\n",
+    "\n",
+    "# Get unique country codes and convert to Eurostat API format\n",
+    "all_country_codes = list(set(code for sublist in regions.values() for code in sublist))\n",
+    "country_param = \"+\".join(all_country_codes)\n",
+    "\n",
+    "def fetch_eurostat_data():\n",
+    "    base_url = \"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data\"\n",
+    "    \n",
+    "    # API parameters with correct filters\n",
+    "    params = {\n",
+    "        \"format\": \"SDMX-CSV\",\n",
+    "        \"lang\": \"en\",\n",
+    "        \"unit\": \"MTOE\",  # Million tonnes of oil equivalent\n",
+    "        \"geo\": country_param,\n",
+    "        \"time\": \"2010:2019\"\n",
+    "    }\n",
+    "    \n",
+    "    try:\n",
+    "        response = requests.get(f\"{base_url}/{dataset_id}\", params=params)\n",
+    "        response.raise_for_status()\n",
+    "        \n",
+    "        # Read CSV directly from response content\n",
+    "        df = pd.read_csv(pd.compat.StringIO(response.text))\n",
+    "        \n",
+    "        # Filter and rename columns\n",
+    "        df = df.rename(columns={\n",
+    "            'geo': 'Country Code',\n",
+    "            'TIME_PERIOD': 'Year',\n",
+    "            'OBS_VALUE': 'Primary Energy Consumption (MTOE)'\n",
+    "        })[['Country Code', 'Year', 'Primary Energy Consumption (MTOE)']]\n",
+    "        \n",
+    "        return df.dropna()\n",
+    "\n",
+    "    except Exception as e:\n",
+    "        print(f\"Data fetch error: {str(e)}\")\n",
+    "        return None\n",
+    "\n",
+    "# Main execution\n",
+    "try:\n",
+    "    df_filtered = fetch_eurostat_data()\n",
+    "    \n",
+    "    if df_filtered is not None and not df_filtered.empty:\n",
+    "        # Create Excel with regional sheets\n",
+    "        output_path = \"Primary_Energy_Consumption_2010_2019.xlsx\"\n",
+    "        with pd.ExcelWriter(output_path) as writer:\n",
+    "            for region, codes in regions.items():\n",
+    "                df_region = df_filtered[df_filtered[\"Country Code\"].isin(codes)]\n",
+    "                if not df_region.empty:\n",
+    "                    df_region.to_excel(writer, sheet_name=region, index=False)\n",
+    "        \n",
+    "        print(f\"Data saved to {output_path}\")\n",
+    "        print(f\"Total records: {len(df_filtered)}\")\n",
+    "        print(\"Units: Million tonnes of oil equivalent (MTOE)\")\n",
+    "    else:\n",
+    "        print(\"No data could be retrieved\")\n",
+    "\n",
+    "except Exception as e:\n",
+    "    print(f\"Processing error: {str(e)}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6bc1c858",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004312,
+     "end_time": "2025-02-03T14:27:54.498312",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:54.494000",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### 2nd Reasoning (worked)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "ba87d011",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:54.508978Z",
+     "iopub.status.busy": "2025-02-03T14:27:54.508618Z",
+     "iopub.status.idle": "2025-02-03T14:27:55.404957Z",
+     "shell.execute_reply": "2025-02-03T14:27:55.403738Z"
+    },
+    "papermill": {
+     "duration": 0.903732,
+     "end_time": "2025-02-03T14:27:55.406643",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:54.502911",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Successfully saved data to european_energy_consumption.xlsx\n",
+      "Total records processed: 1596\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import requests\n",
+    "from io import StringIO  # Correct import for StringIO\n",
+    "\n",
+    "# Correct dataset ID from Eurostat's SDG 07.10 indicator\n",
+    "dataset_id = \"sdg_07_10\"\n",
+    "\n",
+    "# Updated country regions with Eurostat codes\n",
+    "regions = {\n",
+    "    \"Western Europe\": ['AT', 'BE', 'FR', 'DE', 'LI', 'LU', 'NL', 'CH', 'UK', 'IE'],\n",
+    "    \"Northern Europe\": ['DK', 'EE', 'FI', 'IS', 'LV', 'LT', 'NO', 'SE'],\n",
+    "    \"Southern Europe\": ['ES', 'EL', 'IT', 'MT', 'PT', 'SI', 'HR', 'CY'],\n",
+    "    \"Central Europe\": ['CZ', 'HU', 'PL', 'SK', 'SI'],\n",
+    "    \"Southeastern Europe\": ['BG', 'RO', 'RS', 'ME', 'MK', 'AL']\n",
+    "}\n",
+    "\n",
+    "# Generate unique country codes list\n",
+    "all_country_codes = list({code for sublist in regions.values() for code in sublist})\n",
+    "\n",
+    "def fetch_eurostat_data():\n",
+    "    base_url = \"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data\"\n",
+    "    \n",
+    "    params = {\n",
+    "        \"format\": \"SDMX-CSV\",\n",
+    "        \"lang\": \"en\",\n",
+    "        \"unit\": \"MTOE\",\n",
+    "        \"geo\": \"+\".join(all_country_codes),\n",
+    "        \"time\": \"2010:2019\"\n",
+    "    }\n",
+    "    \n",
+    "    try:\n",
+    "        response = requests.get(f\"{base_url}/{dataset_id}\", params=params)\n",
+    "        response.raise_for_status()\n",
+    "        \n",
+    "        # Use io.StringIO instead of pandas.compat.StringIO\n",
+    "        df = pd.read_csv(StringIO(response.text))\n",
+    "        \n",
+    "        # Clean and transform data\n",
+    "        df = df.rename(columns={\n",
+    "            'geo': 'Country Code',\n",
+    "            'TIME_PERIOD': 'Year',\n",
+    "            'OBS_VALUE': 'Energy Consumption (MTOE)'\n",
+    "        })[['Country Code', 'Year', 'Energy Consumption (MTOE)']]\n",
+    "        \n",
+    "        return df.dropna().sort_values(['Country Code', 'Year'])\n",
+    "    \n",
+    "    except Exception as e:\n",
+    "        print(f\"Data fetch error: {str(e)}\")\n",
+    "        return None\n",
+    "\n",
+    "# Main execution\n",
+    "if __name__ == \"__main__\":\n",
+    "    try:\n",
+    "        energy_df = fetch_eurostat_data()\n",
+    "        \n",
+    "        if energy_df is not None and not energy_df.empty:\n",
+    "            # Save to Excel with regional sheets\n",
+    "            with pd.ExcelWriter('european_energy_consumption.xlsx') as writer:\n",
+    "                for region, codes in regions.items():\n",
+    "                    region_df = energy_df[energy_df['Country Code'].isin(codes)]\n",
+    "                    if not region_df.empty:\n",
+    "                        region_df.to_excel(writer, sheet_name=region, index=False)\n",
+    "            \n",
+    "            print(\"Successfully saved data to european_energy_consumption.xlsx\")\n",
+    "            print(f\"Total records processed: {len(energy_df)}\")\n",
+    "        else:\n",
+    "            print(\"No data retrieved - check API parameters or network connection\")\n",
+    "            \n",
+    "    except Exception as e:\n",
+    "        print(f\"Critical error: {str(e)}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "454f9720",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004382,
+     "end_time": "2025-02-03T14:27:55.415926",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:55.411544",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "## 3rd Reasoning (modify) `Worked`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "56af55e0",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:55.426992Z",
+     "iopub.status.busy": "2025-02-03T14:27:55.426425Z",
+     "iopub.status.idle": "2025-02-03T14:27:56.365780Z",
+     "shell.execute_reply": "2025-02-03T14:27:56.364527Z"
+    },
+    "papermill": {
+     "duration": 0.947075,
+     "end_time": "2025-02-03T14:27:56.367683",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:55.420608",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Successfully saved data with country names\n",
+      "Countries included: 28\n",
+      "Time range: 2005-2023\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import requests\n",
+    "from io import StringIO\n",
+    "\n",
+    "# Correct dataset ID from Eurostat's SDG 07.10 indicator\n",
+    "dataset_id = \"sdg_07_10\"\n",
+    "\n",
+    "# Country mapping with full names (I've added missing countries from your regions)\n",
+    "country_names = {\n",
+    "    'AT': 'Austria',       'BE': 'Belgium',       'FR': 'France',\n",
+    "    'DE': 'Germany',        'LI': 'Liechtenstein', 'LU': 'Luxembourg',\n",
+    "    'NL': 'Netherlands',    'CH': 'Switzerland',   'UK': 'United Kingdom',\n",
+    "    'IE': 'Ireland',        'DK': 'Denmark',       'EE': 'Estonia',\n",
+    "    'FI': 'Finland',        'IS': 'Iceland',       'LV': 'Latvia',\n",
+    "    'LT': 'Lithuania',      'NO': 'Norway',        'SE': 'Sweden',\n",
+    "    'ES': 'Spain',          'EL': 'Greece',        'IT': 'Italy',\n",
+    "    'MT': 'Malta',          'PT': 'Portugal',      'SI': 'Slovenia',\n",
+    "    'HR': 'Croatia',        'CY': 'Cyprus',        'CZ': 'Czechia',\n",
+    "    'HU': 'Hungary',        'PL': 'Poland',        'SK': 'Slovakia',\n",
+    "    'BG': 'Bulgaria',       'RO': 'Romania',       'RS': 'Serbia',\n",
+    "    'ME': 'Montenegro',     'MK': 'North Macedonia', 'AL': 'Albania'\n",
+    "}\n",
+    "\n",
+    "regions = {\n",
+    "    \"Western Europe\": ['AT', 'BE', 'FR', 'DE', 'LI', 'LU', 'NL', 'CH', 'UK', 'IE'],\n",
+    "    \"Northern Europe\": ['DK', 'EE', 'FI', 'IS', 'LV', 'LT', 'NO', 'SE'],\n",
+    "    \"Southern Europe\": ['ES', 'EL', 'IT', 'MT', 'PT', 'SI', 'HR', 'CY'],\n",
+    "    \"Central Europe\": ['CZ', 'HU', 'PL', 'SK'],\n",
+    "    \"Southeastern Europe\": ['BG', 'RO', 'RS', 'ME', 'MK', 'AL']\n",
+    "}\n",
+    "\n",
+    "all_country_codes = list({code for sublist in regions.values() for code in sublist})\n",
+    "\n",
+    "def fetch_eurostat_data():\n",
+    "    base_url = \"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data\"\n",
+    "    \n",
+    "    params = {\n",
+    "        \"format\": \"SDMX-CSV\",\n",
+    "        \"lang\": \"en\",\n",
+    "        \"unit\": \"MTOE\",\n",
+    "        \"geo\": \"+\".join(all_country_codes),\n",
+    "        \"time\": \"2010:2019\"\n",
+    "    }\n",
+    "    \n",
+    "    try:\n",
+    "        response = requests.get(f\"{base_url}/{dataset_id}\", params=params)\n",
+    "        response.raise_for_status()\n",
+    "        \n",
+    "        df = pd.read_csv(StringIO(response.text))\n",
+    "        \n",
+    "        # CORRECTED LINES (no hidden characters)\n",
+    "        df = df.rename(columns={\n",
+    "            'geo': 'Country Code',\n",
+    "            'TIME_PERIOD': 'Year',  # Regular space here\n",
+    "            'OBS_VALUE': 'Energy Consumption (MTOE)'  # Regular space here\n",
+    "        })[['Country Code', 'Year', 'Energy Consumption (MTOE)']]\n",
+    "        \n",
+    "        return df.dropna().sort_values(['Country Code', 'Year'])\n",
+    "    \n",
+    "    except Exception as e:\n",
+    "        print(f\"Data fetch error: {str(e)}\")\n",
+    "        return None\n",
+    "\n",
+    "# Main execution\n",
+    "if __name__ == \"__main__\":\n",
+    "    try:\n",
+    "        energy_df = fetch_eurostat_data()\n",
+    "        \n",
+    "        if energy_df is not None and not energy_df.empty:\n",
+    "            energy_df['Country Name'] = energy_df['Country Code'].map(country_names)\n",
+    "            \n",
+    "            with pd.ExcelWriter('european_energy_consumption.xlsx') as writer:\n",
+    "                for region, codes in regions.items():\n",
+    "                    region_df = energy_df[energy_df['Country Code'].isin(codes)]\n",
+    "                    if not region_df.empty:\n",
+    "                        region_df = region_df[['Country Name', 'Year', 'Energy Consumption (MTOE)']]\n",
+    "                        region_df.to_excel(writer, sheet_name=region, index=False)\n",
+    "            \n",
+    "            print(\"Successfully saved data with country names\")\n",
+    "            print(f\"Countries included: {len(energy_df['Country Name'].unique())}\")\n",
+    "            print(f\"Time range: {energy_df['Year'].min()}-{energy_df['Year'].max()}\")\n",
+    "        else:\n",
+    "            print(\"No data retrieved - check API parameters or network connection\")\n",
+    "            \n",
+    "    except Exception as e:\n",
+    "        print(f\"Critical error: {str(e)}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4d2b1ae0",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004513,
+     "end_time": "2025-02-03T14:27:56.377220",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:56.372707",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "### Claude xml method (Didn't worked)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "a223db56",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-03T14:27:56.388532Z",
+     "iopub.status.busy": "2025-02-03T14:27:56.388084Z",
+     "iopub.status.idle": "2025-02-03T14:27:57.209983Z",
+     "shell.execute_reply": "2025-02-03T14:27:57.208955Z"
+    },
+    "papermill": {
+     "duration": 0.829749,
+     "end_time": "2025-02-03T14:27:57.211806",
+     "exception": false,
+     "start_time": "2025-02-03T14:27:56.382057",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Method failed: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_ind_pec?format=SDMX-CSV\n",
+      "Error: HTTP Error 404: Not Found\n",
+      "Method failed: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_ind_pec?format=CSV\n",
+      "Error: HTTP Error 406: Not Acceptable\n",
+      "Comprehensive fetch error: No successful download method found\n",
+      "No data could be retrieved\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import requests\n",
+    "\n",
+    "# Define dataset details\n",
+    "dataset_id = \"nrg_ind_pec\"\n",
+    "\n",
+    "# Country regions\n",
+    "regions = {\n",
+    "    \"Western Europe\": ['AT', 'BE', 'FR', 'DE', 'LI', 'LU', 'MC', 'NL', 'CH', 'GB', 'IE'],\n",
+    "    \"Northern Europe\": ['DK', 'EE', 'FI', 'IS', 'LV', 'LT', 'NO', 'SE'],\n",
+    "    \"Southern Europe\": ['AL', 'AD', 'BA', 'HR', 'CY', 'GR', 'IT', 'MT', 'ME', 'MK', 'PT', 'SM', 'RS', 'SI', 'ES'],\n",
+    "    \"Central Europe\": ['AT', 'CZ', 'DE', 'HU', 'LI', 'PL', 'SK', 'SI', 'CH'],\n",
+    "    \"Southeastern Europe\": ['AL', 'BA', 'BG', 'HR', 'ME', 'MK', 'RO', 'RS', 'SI', 'GR']\n",
+    "}\n",
+    "\n",
+    "# Flatten country codes\n",
+    "all_country_codes = list(set(sum(regions.values(), [])))\n",
+    "\n",
+    "def fetch_eurostat_data():\n",
+    "    # Method 1: Direct CSV download\n",
+    "    base_url = \"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1\"\n",
+    "    full_url = f\"{base_url}/data/{dataset_id}\"\n",
+    "    \n",
+    "    try:\n",
+    "        # Try different download approaches\n",
+    "        download_methods = [\n",
+    "            f\"{full_url}?format=SDMX-CSV\",\n",
+    "            f\"{full_url}?format=CSV\"\n",
+    "        ]\n",
+    "        \n",
+    "        for method_url in download_methods:\n",
+    "            try:\n",
+    "                df = pd.read_csv(method_url)\n",
+    "                \n",
+    "                # Validate DataFrame\n",
+    "                if not df.empty and 'geo' in df.columns and 'time' in df.columns:\n",
+    "                    # Filter for desired countries and years\n",
+    "                    df_filtered = df[\n",
+    "                        (df['geo'].isin(all_country_codes)) & \n",
+    "                        (df['time'].between(2010, 2019))\n",
+    "                    ]\n",
+    "                    \n",
+    "                    # Rename columns\n",
+    "                    df_filtered = df_filtered.rename(columns={\n",
+    "                        'geo': 'Country Code',\n",
+    "                        'time': 'Year',\n",
+    "                        'OBS_VALUE': 'Primary Energy Consumption'\n",
+    "                    })\n",
+    "                    \n",
+    "                    return df_filtered\n",
+    "                \n",
+    "            except Exception as e:\n",
+    "                print(f\"Method failed: {method_url}\")\n",
+    "                print(f\"Error: {e}\")\n",
+    "        \n",
+    "        raise ValueError(\"No successful download method found\")\n",
+    "    \n",
+    "    except Exception as e:\n",
+    "        print(f\"Comprehensive fetch error: {e}\")\n",
+    "        return None\n",
+    "\n",
+    "# Main execution\n",
+    "try:\n",
+    "    df_filtered = fetch_eurostat_data()\n",
+    "    \n",
+    "    if df_filtered is not None and not df_filtered.empty:\n",
+    "        # Create Excel with regional sheets\n",
+    "        output_path = \"/kaggle/working/Primary_Energy_Consumption_2010_2019.xlsx\"\n",
+    "        with pd.ExcelWriter(output_path) as writer:\n",
+    "            for region, codes in regions.items():\n",
+    "                df_region = df_filtered[df_filtered[\"Country Code\"].isin(codes)]\n",
+    "                if not df_region.empty:\n",
+    "                    df_region.to_excel(writer, sheet_name=region, index=False)\n",
+    "        \n",
+    "        print(f\"Data saved to {output_path}\")\n",
+    "        print(f\"Total records: {len(df_filtered)}\")\n",
+    "    else:\n",
+    "        print(\"No data could be retrieved\")\n",
+    "\n",
+    "except Exception as e:\n",
+    "    print(f\"Final processing error: {e}\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "none",
+   "dataSources": [],
+   "dockerImageVersionId": 30839,
+   "isGpuEnabled": false,
+   "isInternetEnabled": true,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 26.207108,
+   "end_time": "2025-02-03T14:27:57.838025",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2025-02-03T14:27:31.630917",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
