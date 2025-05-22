@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "1a31f750",
+   "id": "0624929d",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:28:24.897280Z",
-     "iopub.status.busy": "2025-02-03T10:28:24.896844Z",
-     "iopub.status.idle": "2025-02-03T10:28:25.900869Z",
-     "shell.execute_reply": "2025-02-03T10:28:25.899553Z"
+     "iopub.execute_input": "2025-05-22T11:39:59.476632Z",
+     "iopub.status.busy": "2025-05-22T11:39:59.476155Z",
+     "iopub.status.idle": "2025-05-22T11:40:01.586932Z",
+     "shell.execute_reply": "2025-05-22T11:40:01.585864Z"
     },
     "papermill": {
-     "duration": 1.0127,
-     "end_time": "2025-02-03T10:28:25.903022",
+     "duration": 2.119206,
+     "end_time": "2025-05-22T11:40:01.588894",
      "exception": false,
-     "start_time": "2025-02-03T10:28:24.890322",
+     "start_time": "2025-05-22T11:39:59.469688",
      "status": "completed"
     },
     "tags": []
@@ -45,13 +45,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "03d6a6be",
+   "id": "b52ad6d8",
    "metadata": {
     "papermill": {
-     "duration": 0.004424,
-     "end_time": "2025-02-03T10:28:25.912497",
+     "duration": 0.004854,
+     "end_time": "2025-05-22T11:40:01.598538",
      "exception": false,
-     "start_time": "2025-02-03T10:28:25.908073",
+     "start_time": "2025-05-22T11:40:01.593684",
      "status": "completed"
     },
     "tags": []
@@ -63,20 +63,20 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "4f7ffd30",
+   "id": "76b0fe29",
    "metadata": {
     "_kg_hide-input": true,
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:28:25.923338Z",
-     "iopub.status.busy": "2025-02-03T10:28:25.922786Z",
-     "iopub.status.idle": "2025-02-03T10:28:51.551987Z",
-     "shell.execute_reply": "2025-02-03T10:28:51.550568Z"
+     "iopub.execute_input": "2025-05-22T11:40:01.608670Z",
+     "iopub.status.busy": "2025-05-22T11:40:01.608035Z",
+     "iopub.status.idle": "2025-05-22T11:40:31.105276Z",
+     "shell.execute_reply": "2025-05-22T11:40:31.103926Z"
     },
     "papermill": {
-     "duration": 25.636804,
-     "end_time": "2025-02-03T10:28:51.553992",
+     "duration": 29.504216,
+     "end_time": "2025-05-22T11:40:31.107194",
      "exception": false,
-     "start_time": "2025-02-03T10:28:25.917188",
+     "start_time": "2025-05-22T11:40:01.602978",
      "status": "completed"
     },
     "tags": []
@@ -88,49 +88,49 @@
      "text": [
       "Collecting wbdata\r\n",
       "  Downloading wbdata-1.0.0-py3-none-any.whl.metadata (2.6 kB)\r\n",
-      "Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (2.2.2)\r\n",
+      "Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.3)\r\n",
       "Collecting appdirs<2.0,>=1.4 (from wbdata)\r\n",
       "  Downloading appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)\r\n",
       "Collecting backoff<3.0.0,>=2.2.1 (from wbdata)\r\n",
       "  Downloading backoff-2.2.1-py3-none-any.whl.metadata (14 kB)\r\n",
-      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.5.0)\r\n",
+      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.11/dist-packages (from wbdata) (5.5.2)\r\n",
       "Collecting dateparser<2.0.0,>=1.2.0 (from wbdata)\r\n",
-      "  Downloading dateparser-1.2.0-py2.py3-none-any.whl.metadata (28 kB)\r\n",
+      "  Downloading dateparser-1.2.1-py3-none-any.whl.metadata (29 kB)\r\n",
       "Collecting decorator<6.0.0,>=5.1.1 (from wbdata)\r\n",
-      "  Downloading decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)\r\n",
-      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.32.3)\r\n",
+      "  Downloading decorator-5.2.1-py3-none-any.whl.metadata (3.9 kB)\r\n",
+      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.11/dist-packages (from wbdata) (2.32.3)\r\n",
       "Collecting shelved-cache<0.4.0,>=0.3.1 (from wbdata)\r\n",
       "  Downloading shelved_cache-0.3.1-py3-none-any.whl.metadata (4.7 kB)\r\n",
       "Collecting tabulate<0.9.0,>=0.8.5 (from wbdata)\r\n",
       "  Downloading tabulate-0.8.10-py3-none-any.whl.metadata (25 kB)\r\n",
-      "Requirement already satisfied: numpy>=1.22.4 in /usr/local/lib/python3.10/dist-packages (from pandas) (1.26.4)\r\n",
-      "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas) (2.8.2)\r\n",
-      "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)\r\n",
-      "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)\r\n",
-      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27 in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
-      "Requirement already satisfied: tzlocal in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.2)\r\n",
-      "Requirement already satisfied: mkl_fft in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (1.3.8)\r\n",
-      "Requirement already satisfied: mkl_random in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (1.2.4)\r\n",
-      "Requirement already satisfied: mkl_umath in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (0.1.1)\r\n",
-      "Requirement already satisfied: mkl in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (2025.0.1)\r\n",
-      "Requirement already satisfied: tbb4py in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (2022.0.0)\r\n",
-      "Requirement already satisfied: mkl-service in /usr/local/lib/python3.10/dist-packages (from numpy>=1.22.4->pandas) (2.4.1)\r\n",
-      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\r\n",
-      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.0)\r\n",
-      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
-      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2.2.3)\r\n",
-      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2024.12.14)\r\n",
-      "Requirement already satisfied: intel-openmp>=2024 in /usr/local/lib/python3.10/dist-packages (from mkl->numpy>=1.22.4->pandas) (2024.2.0)\r\n",
-      "Requirement already satisfied: tbb==2022.* in /usr/local/lib/python3.10/dist-packages (from mkl->numpy>=1.22.4->pandas) (2022.0.0)\r\n",
-      "Requirement already satisfied: tcmlib==1.* in /usr/local/lib/python3.10/dist-packages (from tbb==2022.*->mkl->numpy>=1.22.4->pandas) (1.2.0)\r\n",
-      "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy>=1.22.4->pandas) (2024.2.0)\r\n",
-      "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy>=1.22.4->pandas) (2024.2.0)\r\n",
+      "Requirement already satisfied: numpy>=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (1.26.4)\r\n",
+      "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.9.0.post0)\r\n",
+      "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)\r\n",
+      "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)\r\n",
+      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27,>=2015.06.24 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
+      "Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.3.1)\r\n",
+      "Requirement already satisfied: mkl_fft in /usr/local/lib/python3.11/dist-packages (from numpy>=1.23.2->pandas) (1.3.8)\r\n",
+      "Requirement already satisfied: mkl_random in /usr/local/lib/python3.11/dist-packages (from numpy>=1.23.2->pandas) (1.2.4)\r\n",
+      "Requirement already satisfied: mkl_umath in /usr/local/lib/python3.11/dist-packages (from numpy>=1.23.2->pandas) (0.1.1)\r\n",
+      "Requirement already satisfied: mkl in /usr/local/lib/python3.11/dist-packages (from numpy>=1.23.2->pandas) (2025.1.0)\r\n",
+      "Requirement already satisfied: tbb4py in /usr/local/lib/python3.11/dist-packages (from numpy>=1.23.2->pandas) (2022.1.0)\r\n",
+      "Requirement already satisfied: mkl-service in /usr/local/lib/python3.11/dist-packages (from numpy>=1.23.2->pandas) (2.4.1)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.2)\r\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2.4.0)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2025.4.26)\r\n",
+      "Requirement already satisfied: intel-openmp<2026,>=2024 in /usr/local/lib/python3.11/dist-packages (from mkl->numpy>=1.23.2->pandas) (2024.2.0)\r\n",
+      "Requirement already satisfied: tbb==2022.* in /usr/local/lib/python3.11/dist-packages (from mkl->numpy>=1.23.2->pandas) (2022.1.0)\r\n",
+      "Requirement already satisfied: tcmlib==1.* in /usr/local/lib/python3.11/dist-packages (from tbb==2022.*->mkl->numpy>=1.23.2->pandas) (1.3.0)\r\n",
+      "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.11/dist-packages (from mkl_umath->numpy>=1.23.2->pandas) (2024.2.0)\r\n",
+      "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.11/dist-packages (from intel-openmp<2026,>=2024->mkl->numpy>=1.23.2->pandas) (2024.2.0)\r\n",
       "Downloading wbdata-1.0.0-py3-none-any.whl (18 kB)\r\n",
       "Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)\r\n",
       "Downloading backoff-2.2.1-py3-none-any.whl (15 kB)\r\n",
-      "Downloading dateparser-1.2.0-py2.py3-none-any.whl (294 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m295.0/295.0 kB\u001b[0m \u001b[31m5.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
-      "\u001b[?25hDownloading decorator-5.1.1-py3-none-any.whl (9.1 kB)\r\n",
+      "Downloading dateparser-1.2.1-py3-none-any.whl (295 kB)\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m295.7/295.7 kB\u001b[0m \u001b[31m6.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[?25hDownloading decorator-5.2.1-py3-none-any.whl (9.2 kB)\r\n",
       "Downloading shelved_cache-0.3.1-py3-none-any.whl (7.8 kB)\r\n",
       "Downloading tabulate-0.8.10-py3-none-any.whl (29 kB)\r\n",
       "Installing collected packages: appdirs, tabulate, shelved-cache, decorator, backoff, dateparser, wbdata\r\n",
@@ -143,10 +143,10 @@
       "    Uninstalling decorator-4.4.2:\r\n",
       "      Successfully uninstalled decorator-4.4.2\r\n",
       "\u001b[31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\r\n",
-      "bigframes 1.29.0 requires tabulate>=0.9, but you have tabulate 0.8.10 which is incompatible.\r\n",
-      "gcsfs 2024.10.0 requires fsspec==2024.10.0, but you have fsspec 2024.9.0 which is incompatible.\r\n",
-      "moviepy 1.0.3 requires decorator<5.0,>=4.0.2, but you have decorator 5.1.1 which is incompatible.\u001b[0m\u001b[31m\r\n",
-      "\u001b[0mSuccessfully installed appdirs-1.4.4 backoff-2.2.1 dateparser-1.2.0 decorator-5.1.1 shelved-cache-0.3.1 tabulate-0.8.10 wbdata-1.0.0\r\n",
+      "moviepy 1.0.3 requires decorator<5.0,>=4.0.2, but you have decorator 5.2.1 which is incompatible.\r\n",
+      "bigframes 1.42.0 requires rich<14,>=12.4.4, but you have rich 14.0.0 which is incompatible.\r\n",
+      "bigframes 1.42.0 requires tabulate>=0.9, but you have tabulate 0.8.10 which is incompatible.\u001b[0m\u001b[31m\r\n",
+      "\u001b[0mSuccessfully installed appdirs-1.4.4 backoff-2.2.1 dateparser-1.2.1 decorator-5.2.1 shelved-cache-0.3.1 tabulate-0.8.10 wbdata-1.0.0\r\n",
       "Note: you may need to restart the kernel to use updated packages.\n"
      ]
     }
@@ -157,13 +157,302 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6490a1e2",
+   "id": "dde87c61",
    "metadata": {
     "papermill": {
-     "duration": 0.005715,
-     "end_time": "2025-02-03T10:28:51.566093",
+     "duration": 0.005359,
+     "end_time": "2025-05-22T11:40:31.118945",
      "exception": false,
-     "start_time": "2025-02-03T10:28:51.560378",
+     "start_time": "2025-05-22T11:40:31.113586",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "## fetch  8 educational and economic indicators for the OECD and other specified countries from 1998 to 2018 at once"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "5feda5f8",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-05-22T11:40:31.131632Z",
+     "iopub.status.busy": "2025-05-22T11:40:31.131290Z",
+     "iopub.status.idle": "2025-05-22T11:40:41.902920Z",
+     "shell.execute_reply": "2025-05-22T11:40:41.901806Z"
+    },
+    "papermill": {
+     "duration": 10.78026,
+     "end_time": "2025-05-22T11:40:41.904686",
+     "exception": false,
+     "start_time": "2025-05-22T11:40:31.124426",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Requirement already satisfied: wbdata in /usr/local/lib/python3.11/dist-packages (1.0.0)\r\n",
+      "Requirement already satisfied: appdirs<2.0,>=1.4 in /usr/local/lib/python3.11/dist-packages (from wbdata) (1.4.4)\r\n",
+      "Requirement already satisfied: backoff<3.0.0,>=2.2.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (2.2.1)\r\n",
+      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.11/dist-packages (from wbdata) (5.5.2)\r\n",
+      "Requirement already satisfied: dateparser<2.0.0,>=1.2.0 in /usr/local/lib/python3.11/dist-packages (from wbdata) (1.2.1)\r\n",
+      "Requirement already satisfied: decorator<6.0.0,>=5.1.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (5.2.1)\r\n",
+      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.11/dist-packages (from wbdata) (2.32.3)\r\n",
+      "Requirement already satisfied: shelved-cache<0.4.0,>=0.3.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (0.3.1)\r\n",
+      "Requirement already satisfied: tabulate<0.9.0,>=0.8.5 in /usr/local/lib/python3.11/dist-packages (from wbdata) (0.8.10)\r\n",
+      "Requirement already satisfied: python-dateutil>=2.7.0 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2.9.0.post0)\r\n",
+      "Requirement already satisfied: pytz>=2024.2 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2025.2)\r\n",
+      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27,>=2015.06.24 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
+      "Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.3.1)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.2)\r\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2.4.0)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2025.4.26)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.7.0->dateparser<2.0.0,>=1.2.0->wbdata) (1.17.0)\r\n",
+      "Fetching data for: Educational attainment, at least Bachelor's or equivalent, population 25+, male (%) (cumulative)\n",
+      "Data saved for: Educational attainment, at least Bachelor's or equivalent, population 25+, male (%) (cumulative)\n",
+      "Fetching data for: Industry (including construction), value added (% of GDP)\n",
+      "Data saved for: Industry (including construction), value added (% of GDP)\n",
+      "Fetching data for: Foreign direct investment, net (BoP, current US$)\n",
+      "Data saved for: Foreign direct investment, net (BoP, current US$)\n",
+      "Fetching data for: Domestic credit provided by financial sector (% of GDP)\n",
+      "Data saved for: Domestic credit provided by financial sector (% of GDP)\n",
+      "Fetching data for: Trade (% of GDP)\n",
+      "Data saved for: Trade (% of GDP)\n",
+      "Fetching data for: Labor force with advanced education (% of total working-age population with advanced education)\n",
+      "Data saved for: Labor force with advanced education (% of total working-age population with advanced education)\n",
+      "Fetching data for: Labor force with basic education (% of total working-age population with basic education)\n",
+      "Data saved for: Labor force with basic education (% of total working-age population with basic education)\n",
+      "Fetching data for: Research and development expenditure (% of GDP)\n",
+      "Data saved for: Research and development expenditure (% of GDP)\n",
+      "Education and Economics indicators data saved to /kaggle/working/Education_Economics_Indicators_1998_2018.xlsx\n",
+      "\n",
+      "Countries included in the analysis (52 total):\n",
+      " 1. AUS\n",
+      " 2. AUT\n",
+      " 3. BEL\n",
+      " 4. CAN\n",
+      " 5. CHL\n",
+      " 6. COL\n",
+      " 7. CRI\n",
+      " 8. CZE\n",
+      " 9. DNK\n",
+      "10. EST\n",
+      "11. FIN\n",
+      "12. FRA\n",
+      "13. DEU\n",
+      "14. GRC\n",
+      "15. HUN\n",
+      "16. ISL\n",
+      "17. IRL\n",
+      "18. ISR\n",
+      "19. ITA\n",
+      "20. JPN\n",
+      "21. KOR\n",
+      "22. LVA\n",
+      "23. LTU\n",
+      "24. LUX\n",
+      "25. MEX\n",
+      "26. NLD\n",
+      "27. NZL\n",
+      "28. NOR\n",
+      "29. POL\n",
+      "30. PRT\n",
+      "31. SVK\n",
+      "32. SVN\n",
+      "33. ESP\n",
+      "34. SWE\n",
+      "35. CHE\n",
+      "36. TUR\n",
+      "37. GBR\n",
+      "38. USA\n",
+      "39. ARG\n",
+      "40. BRA\n",
+      "41. BGR\n",
+      "42. CHN\n",
+      "43. HRV\n",
+      "44. CYP\n",
+      "45. IND\n",
+      "46. IDN\n",
+      "47. MLT\n",
+      "48. PER\n",
+      "49. ROU\n",
+      "50. RUS\n",
+      "51. SAU\n",
+      "52. ZAF\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Install wbdata if not already installed\n",
+    "!pip install wbdata\n",
+    "import wbdata\n",
+    "import pandas as pd\n",
+    "from datetime import datetime\n",
+    "\n",
+    "# Define countries with their ISO codes\n",
+    "countries = [\n",
+    "    'AUS',  # Australia\n",
+    "    'AUT',  # Austria\n",
+    "    'BEL',  # Belgium\n",
+    "    'CAN',  # Canada\n",
+    "    'CHL',  # Chile\n",
+    "    'COL',  # Colombia\n",
+    "    'CRI',  # Costa Rica\n",
+    "    'CZE',  # Czechia\n",
+    "    'DNK',  # Denmark\n",
+    "    'EST',  # Estonia\n",
+    "    'FIN',  # Finland\n",
+    "    'FRA',  # France\n",
+    "    'DEU',  # Germany\n",
+    "    'GRC',  # Greece\n",
+    "    'HUN',  # Hungary\n",
+    "    'ISL',  # Iceland\n",
+    "    'IRL',  # Ireland\n",
+    "    'ISR',  # Israel\n",
+    "    'ITA',  # Italy\n",
+    "    'JPN',  # Japan\n",
+    "    'KOR',  # Korea\n",
+    "    'LVA',  # Latvia\n",
+    "    'LTU',  # Lithuania\n",
+    "    'LUX',  # Luxembourg\n",
+    "    'MEX',  # Mexico\n",
+    "    'NLD',  # Netherlands\n",
+    "    'NZL',  # New Zealand\n",
+    "    'NOR',  # Norway\n",
+    "    'POL',  # Poland\n",
+    "    'PRT',  # Portugal\n",
+    "    'SVK',  # Slovak Republic\n",
+    "    'SVN',  # Slovenia\n",
+    "    'ESP',  # Spain\n",
+    "    'SWE',  # Sweden\n",
+    "    'CHE',  # Switzerland\n",
+    "    'TUR',  # Türkiye\n",
+    "    'GBR',  # United Kingdom\n",
+    "    'USA',  # United States\n",
+    "    'ARG',  # Argentina\n",
+    "    'BRA',  # Brazil\n",
+    "    'BGR',  # Bulgaria\n",
+    "    'CHN',  # China (People's Republic of)\n",
+    "    'HRV',  # Croatia\n",
+    "    'CYP',  # Cyprus\n",
+    "    'IND',  # India\n",
+    "    'IDN',  # Indonesia\n",
+    "    'MLT',  # Malta\n",
+    "    'PER',  # Peru\n",
+    "    'ROU',  # Romania\n",
+    "    'RUS',  # Russia\n",
+    "    'SAU',  # Saudi Arabia\n",
+    "    'ZAF'   # South Africa\n",
+    "]\n",
+    "\n",
+    "# Define indicators\n",
+    "indicators = {\n",
+    "    'SE.TER.CUAT.BA.MA.ZS': 'Educational attainment, at least Bachelor\\'s or equivalent, population 25+, male (%) (cumulative)',\n",
+    "    'NV.IND.TOTL.ZS': 'Industry (including construction), value added (% of GDP)',\n",
+    "    'BX.KLT.DINV.CD.WD': 'Foreign direct investment, net (BoP, current US$)',\n",
+    "    'FD.AST.PRVT.GD.ZS': 'Domestic credit provided by financial sector (% of GDP)',\n",
+    "    'NE.TRD.GNFS.ZS': 'Trade (% of GDP)',\n",
+    "    'SL.TLF.ADVN.ZS': 'Labor force with advanced education (% of total working-age population with advanced education)',\n",
+    "    'SL.TLF.BASC.ZS': 'Labor force with basic education (% of total working-age population with basic education)',\n",
+    "    'GB.XPD.RSDV.GD.ZS': 'Research and development expenditure (% of GDP)'\n",
+    "}\n",
+    "\n",
+    "# Define the start and end years\n",
+    "start_date = datetime(1998, 1, 1)\n",
+    "end_date = datetime(2018, 12, 31)\n",
+    "\n",
+    "# Define output file path\n",
+    "output_path = \"/kaggle/working/Education_Economics_Indicators_1998_2018.xlsx\"\n",
+    "\n",
+    "# Create an Excel writer\n",
+    "with pd.ExcelWriter(output_path) as writer:\n",
+    "    sheet_written = False  # Flag to check if at least one sheet is written\n",
+    "    \n",
+    "    for indicator_code, indicator_name in indicators.items():\n",
+    "        print(f\"Fetching data for: {indicator_name}\")\n",
+    "        \n",
+    "        try:\n",
+    "            # Fetch data for the given countries and indicator\n",
+    "            df = wbdata.get_dataframe(\n",
+    "                {indicator_code: indicator_name}, \n",
+    "                country=countries, \n",
+    "                date=(start_date, end_date)\n",
+    "            ).reset_index()\n",
+    "            \n",
+    "            # If the dataframe is empty, skip writing it\n",
+    "            if df.empty:\n",
+    "                print(f\"Skipping {indicator_name} (No data available).\")\n",
+    "                continue\n",
+    "            \n",
+    "            # Convert 'date' column to datetime objects if it's not already\n",
+    "            if not pd.api.types.is_datetime64_any_dtype(df['date']):\n",
+    "                df['date'] = pd.to_datetime(df['date'])\n",
+    "                \n",
+    "            # Extract only the year\n",
+    "            df['year'] = df['date'].dt.year\n",
+    "            \n",
+    "            # Drop the 'date' column and sort by country and year\n",
+    "            df = df.drop(columns=['date']).sort_values(by=['country', 'year'])\n",
+    "            \n",
+    "            # Create a safe sheet name (Excel sheet names have character limits)\n",
+    "            sheet_name = indicator_name[:31]  # Limit to 31 characters for Excel compatibility\n",
+    "            if len(indicator_name) > 31:\n",
+    "                # Create a shorter, meaningful name\n",
+    "                if 'Educational attainment' in indicator_name:\n",
+    "                    sheet_name = 'Bachelor_Male_Education'\n",
+    "                elif 'Industry' in indicator_name:\n",
+    "                    sheet_name = 'Industry_Value_Added'\n",
+    "                elif 'Foreign direct investment' in indicator_name:\n",
+    "                    sheet_name = 'FDI_Net'\n",
+    "                elif 'Domestic credit' in indicator_name:\n",
+    "                    sheet_name = 'Domestic_Credit'\n",
+    "                elif 'Trade' in indicator_name:\n",
+    "                    sheet_name = 'Trade_GDP'\n",
+    "                elif 'advanced education' in indicator_name:\n",
+    "                    sheet_name = 'Labor_Advanced_Education'\n",
+    "                elif 'basic education' in indicator_name:\n",
+    "                    sheet_name = 'Labor_Basic_Education'\n",
+    "                elif 'Research and development' in indicator_name:\n",
+    "                    sheet_name = 'RD_Expenditure'\n",
+    "            \n",
+    "            # Save data to a sheet\n",
+    "            df.to_excel(writer, sheet_name=sheet_name, index=False)\n",
+    "            sheet_written = True  # Mark that at least one sheet is written\n",
+    "            print(f\"Data saved for: {indicator_name}\")\n",
+    "            \n",
+    "        except Exception as e:\n",
+    "            print(f\"Error fetching data for {indicator_name}: {str(e)}\")\n",
+    "            continue\n",
+    "    \n",
+    "    # If no data was written, create a dummy sheet to prevent the error\n",
+    "    if not sheet_written:\n",
+    "        df = pd.DataFrame({\"Message\": [\"No data available for any indicator.\"]})\n",
+    "        df.to_excel(writer, sheet_name=\"No Data\", index=False)\n",
+    "\n",
+    "print(f\"Education and Economics indicators data saved to {output_path}\")\n",
+    "\n",
+    "# Optional: Display summary of countries included\n",
+    "print(f\"\\nCountries included in the analysis ({len(countries)} total):\")\n",
+    "for i, country_code in enumerate(countries, 1):\n",
+    "    print(f\"{i:2d}. {country_code}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "050c45b7",
+   "metadata": {
+    "papermill": {
+     "duration": 0.006598,
+     "end_time": "2025-05-22T11:40:41.917633",
+     "exception": false,
+     "start_time": "2025-05-22T11:40:41.911035",
      "status": "completed"
     },
     "tags": []
@@ -174,20 +463,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
-   "id": "8bf0ad3f",
+   "execution_count": 4,
+   "id": "67d4dc1d",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:28:51.579946Z",
-     "iopub.status.busy": "2025-02-03T10:28:51.579505Z",
-     "iopub.status.idle": "2025-02-03T10:28:57.938674Z",
-     "shell.execute_reply": "2025-02-03T10:28:57.937178Z"
+     "iopub.execute_input": "2025-05-22T11:40:41.932423Z",
+     "iopub.status.busy": "2025-05-22T11:40:41.931762Z",
+     "iopub.status.idle": "2025-05-22T11:40:47.948982Z",
+     "shell.execute_reply": "2025-05-22T11:40:47.947566Z"
     },
     "papermill": {
-     "duration": 6.368645,
-     "end_time": "2025-02-03T10:28:57.940741",
+     "duration": 6.027127,
+     "end_time": "2025-05-22T11:40:47.951020",
      "exception": false,
-     "start_time": "2025-02-03T10:28:51.572096",
+     "start_time": "2025-05-22T11:40:41.923893",
      "status": "completed"
     },
     "tags": []
@@ -197,25 +486,25 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Requirement already satisfied: wbdata in /usr/local/lib/python3.10/dist-packages (1.0.0)\r\n",
-      "Requirement already satisfied: appdirs<2.0,>=1.4 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.4.4)\r\n",
-      "Requirement already satisfied: backoff<3.0.0,>=2.2.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.2.1)\r\n",
-      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.5.0)\r\n",
-      "Requirement already satisfied: dateparser<2.0.0,>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.2.0)\r\n",
-      "Requirement already satisfied: decorator<6.0.0,>=5.1.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.1.1)\r\n",
-      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.32.3)\r\n",
-      "Requirement already satisfied: shelved-cache<0.4.0,>=0.3.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.3.1)\r\n",
-      "Requirement already satisfied: tabulate<0.9.0,>=0.8.5 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.8.10)\r\n",
-      "Requirement already satisfied: python-dateutil in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2.8.2)\r\n",
-      "Requirement already satisfied: pytz in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.2)\r\n",
-      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27 in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
-      "Requirement already satisfied: tzlocal in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.2)\r\n",
-      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.0)\r\n",
-      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
-      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2.2.3)\r\n",
-      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2024.12.14)\r\n",
-      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil->dateparser<2.0.0,>=1.2.0->wbdata) (1.17.0)\r\n",
-      "Energy use per capita data saved to /kaggle/working/Energy_Use_Per_Capita_2010_2019.xlsx\n"
+      "Requirement already satisfied: wbdata in /usr/local/lib/python3.11/dist-packages (1.0.0)\r\n",
+      "Requirement already satisfied: appdirs<2.0,>=1.4 in /usr/local/lib/python3.11/dist-packages (from wbdata) (1.4.4)\r\n",
+      "Requirement already satisfied: backoff<3.0.0,>=2.2.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (2.2.1)\r\n",
+      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.11/dist-packages (from wbdata) (5.5.2)\r\n",
+      "Requirement already satisfied: dateparser<2.0.0,>=1.2.0 in /usr/local/lib/python3.11/dist-packages (from wbdata) (1.2.1)\r\n",
+      "Requirement already satisfied: decorator<6.0.0,>=5.1.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (5.2.1)\r\n",
+      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.11/dist-packages (from wbdata) (2.32.3)\r\n",
+      "Requirement already satisfied: shelved-cache<0.4.0,>=0.3.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (0.3.1)\r\n",
+      "Requirement already satisfied: tabulate<0.9.0,>=0.8.5 in /usr/local/lib/python3.11/dist-packages (from wbdata) (0.8.10)\r\n",
+      "Requirement already satisfied: python-dateutil>=2.7.0 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2.9.0.post0)\r\n",
+      "Requirement already satisfied: pytz>=2024.2 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2025.2)\r\n",
+      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27,>=2015.06.24 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
+      "Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.3.1)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.2)\r\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2.4.0)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2025.4.26)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.7.0->dateparser<2.0.0,>=1.2.0->wbdata) (1.17.0)\r\n",
+      "Energy use per capita data saved to /kaggle/working/Renewable energy consumption_2010_2019.xlsx\n"
      ]
     }
    ],
@@ -237,14 +526,14 @@
     "}\n",
     "\n",
     "# Indicator for Energy use per capita\n",
-    "indicator = {'EG.USE.PCAP.KG.OE': 'Energy use (kg of oil equivalent per capita)'}\n",
+    "indicator = {'EG.FEC.RNEW.ZS': 'Renewable energy consumption (% of total final energy consumption)'}\n",
     "\n",
     "# Define the start and end years\n",
     "start_date = datetime(2010, 1, 1)\n",
     "end_date = datetime(2019, 12, 31)\n",
     "\n",
     "# Define output file path for Kaggle\n",
-    "output_path = \"/kaggle/working/Energy_Use_Per_Capita_2010_2019.xlsx\"\n",
+    "output_path = \"/kaggle/working/Renewable energy consumption_2010_2019.xlsx\"\n",
     "\n",
     "# Create an Excel writer\n",
     "with pd.ExcelWriter(output_path) as writer:\n",
@@ -286,13 +575,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9260a8ae",
+   "id": "c0dc37f8",
    "metadata": {
     "papermill": {
-     "duration": 0.006605,
-     "end_time": "2025-02-03T10:28:57.954097",
+     "duration": 0.006198,
+     "end_time": "2025-05-22T11:40:47.964240",
      "exception": false,
-     "start_time": "2025-02-03T10:28:57.947492",
+     "start_time": "2025-05-22T11:40:47.958042",
      "status": "completed"
     },
     "tags": []
@@ -303,20 +592,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
-   "id": "ac5523f9",
+   "execution_count": 5,
+   "id": "a9a5eb36",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:28:57.968255Z",
-     "iopub.status.busy": "2025-02-03T10:28:57.967622Z",
-     "iopub.status.idle": "2025-02-03T10:28:57.994667Z",
-     "shell.execute_reply": "2025-02-03T10:28:57.993520Z"
+     "iopub.execute_input": "2025-05-22T11:40:47.978733Z",
+     "iopub.status.busy": "2025-05-22T11:40:47.978396Z",
+     "iopub.status.idle": "2025-05-22T11:40:48.450657Z",
+     "shell.execute_reply": "2025-05-22T11:40:48.449224Z"
     },
     "papermill": {
-     "duration": 0.036208,
-     "end_time": "2025-02-03T10:28:57.996626",
+     "duration": 0.481933,
+     "end_time": "2025-05-22T11:40:48.452542",
      "exception": false,
-     "start_time": "2025-02-03T10:28:57.960418",
+     "start_time": "2025-05-22T11:40:47.970609",
      "status": "completed"
     },
     "tags": []
@@ -327,17 +616,17 @@
      "output_type": "stream",
      "text": [
       "            country  Energy use (kg of oil equivalent per capita)  year\n",
-      "109     Netherlands                                   5025.320916  2010\n",
-      "49           France                                   4016.928005  2010\n",
-      "69          Ireland                                   3152.003605  2010\n",
-      "39          Germany                                   3997.079421  2010\n",
+      "109     Netherlands                                   4978.869388  2010\n",
+      "49           France                                   4040.439555  2010\n",
+      "69          Ireland                                   3149.018492  2010\n",
+      "39          Germany                                   4029.830858  2010\n",
       "79    Liechtenstein                                           NaN  2010\n",
       "..              ...                                           ...   ...\n",
-      "40           France                                           NaN  2019\n",
+      "40           France                                   3601.765708  2019\n",
       "70    Liechtenstein                                           NaN  2019\n",
-      "50   United Kingdom                                           NaN  2019\n",
-      "10          Belgium                                           NaN  2019\n",
-      "0           Austria                                           NaN  2019\n",
+      "50   United Kingdom                                   2508.231650  2019\n",
+      "10          Belgium                                   4773.932614  2019\n",
+      "0           Austria                                   3765.980119  2019\n",
       "\n",
       "[110 rows x 3 columns]\n"
      ]
@@ -346,11 +635,11 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
       "  has_large_values = (abs_vals > 1e6).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
      ]
     }
@@ -396,13 +685,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b09c4396",
+   "id": "d468d40e",
    "metadata": {
     "papermill": {
-     "duration": 0.006205,
-     "end_time": "2025-02-03T10:28:58.009509",
+     "duration": 0.006959,
+     "end_time": "2025-05-22T11:40:48.466747",
      "exception": false,
-     "start_time": "2025-02-03T10:28:58.003304",
+     "start_time": "2025-05-22T11:40:48.459788",
      "status": "completed"
     },
     "tags": []
@@ -413,20 +702,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
-   "id": "273e9aa5",
+   "execution_count": 6,
+   "id": "ac42219b",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:28:58.024189Z",
-     "iopub.status.busy": "2025-02-03T10:28:58.023731Z",
-     "iopub.status.idle": "2025-02-03T10:29:02.522632Z",
-     "shell.execute_reply": "2025-02-03T10:29:02.521259Z"
+     "iopub.execute_input": "2025-05-22T11:40:48.481123Z",
+     "iopub.status.busy": "2025-05-22T11:40:48.480666Z",
+     "iopub.status.idle": "2025-05-22T11:40:54.120230Z",
+     "shell.execute_reply": "2025-05-22T11:40:54.118706Z"
     },
     "papermill": {
-     "duration": 4.508715,
-     "end_time": "2025-02-03T10:29:02.524672",
+     "duration": 5.649059,
+     "end_time": "2025-05-22T11:40:54.122210",
      "exception": false,
-     "start_time": "2025-02-03T10:28:58.015957",
+     "start_time": "2025-05-22T11:40:48.473151",
      "status": "completed"
     },
     "tags": []
@@ -436,24 +725,24 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Requirement already satisfied: wbdata in /usr/local/lib/python3.10/dist-packages (1.0.0)\r\n",
-      "Requirement already satisfied: appdirs<2.0,>=1.4 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.4.4)\r\n",
-      "Requirement already satisfied: backoff<3.0.0,>=2.2.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.2.1)\r\n",
-      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.5.0)\r\n",
-      "Requirement already satisfied: dateparser<2.0.0,>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (1.2.0)\r\n",
-      "Requirement already satisfied: decorator<6.0.0,>=5.1.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (5.1.1)\r\n",
-      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.10/dist-packages (from wbdata) (2.32.3)\r\n",
-      "Requirement already satisfied: shelved-cache<0.4.0,>=0.3.1 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.3.1)\r\n",
-      "Requirement already satisfied: tabulate<0.9.0,>=0.8.5 in /usr/local/lib/python3.10/dist-packages (from wbdata) (0.8.10)\r\n",
-      "Requirement already satisfied: python-dateutil in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2.8.2)\r\n",
-      "Requirement already satisfied: pytz in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.2)\r\n",
-      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27 in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
-      "Requirement already satisfied: tzlocal in /usr/local/lib/python3.10/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.2)\r\n",
-      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.0)\r\n",
-      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
-      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2.2.3)\r\n",
-      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3.0,>=2.0->wbdata) (2024.12.14)\r\n",
-      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil->dateparser<2.0.0,>=1.2.0->wbdata) (1.17.0)\r\n",
+      "Requirement already satisfied: wbdata in /usr/local/lib/python3.11/dist-packages (1.0.0)\r\n",
+      "Requirement already satisfied: appdirs<2.0,>=1.4 in /usr/local/lib/python3.11/dist-packages (from wbdata) (1.4.4)\r\n",
+      "Requirement already satisfied: backoff<3.0.0,>=2.2.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (2.2.1)\r\n",
+      "Requirement already satisfied: cachetools<6.0.0,>=5.3.2 in /usr/local/lib/python3.11/dist-packages (from wbdata) (5.5.2)\r\n",
+      "Requirement already satisfied: dateparser<2.0.0,>=1.2.0 in /usr/local/lib/python3.11/dist-packages (from wbdata) (1.2.1)\r\n",
+      "Requirement already satisfied: decorator<6.0.0,>=5.1.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (5.2.1)\r\n",
+      "Requirement already satisfied: requests<3.0,>=2.0 in /usr/local/lib/python3.11/dist-packages (from wbdata) (2.32.3)\r\n",
+      "Requirement already satisfied: shelved-cache<0.4.0,>=0.3.1 in /usr/local/lib/python3.11/dist-packages (from wbdata) (0.3.1)\r\n",
+      "Requirement already satisfied: tabulate<0.9.0,>=0.8.5 in /usr/local/lib/python3.11/dist-packages (from wbdata) (0.8.10)\r\n",
+      "Requirement already satisfied: python-dateutil>=2.7.0 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2.9.0.post0)\r\n",
+      "Requirement already satisfied: pytz>=2024.2 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2025.2)\r\n",
+      "Requirement already satisfied: regex!=2019.02.19,!=2021.8.27,>=2015.06.24 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (2024.11.6)\r\n",
+      "Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.11/dist-packages (from dateparser<2.0.0,>=1.2.0->wbdata) (5.3.1)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.4.2)\r\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (3.10)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2.4.0)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests<3.0,>=2.0->wbdata) (2025.4.26)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.7.0->dateparser<2.0.0,>=1.2.0->wbdata) (1.17.0)\r\n",
       "Energy use per capita data saved to /kaggle/working/Energy_Use_Per_Capita_2010_2019.xlsx\n"
      ]
     }
@@ -525,13 +814,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f558bfe5",
+   "id": "86a21c63",
    "metadata": {
     "papermill": {
-     "duration": 0.006323,
-     "end_time": "2025-02-03T10:29:02.538193",
+     "duration": 0.006211,
+     "end_time": "2025-05-22T11:40:54.135528",
      "exception": false,
-     "start_time": "2025-02-03T10:29:02.531870",
+     "start_time": "2025-05-22T11:40:54.129317",
      "status": "completed"
     },
     "tags": []
@@ -542,20 +831,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
-   "id": "94799f55",
+   "execution_count": 7,
+   "id": "9f5678d5",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:29:02.553890Z",
-     "iopub.status.busy": "2025-02-03T10:29:02.553491Z",
-     "iopub.status.idle": "2025-02-03T10:29:02.871413Z",
-     "shell.execute_reply": "2025-02-03T10:29:02.869911Z"
+     "iopub.execute_input": "2025-05-22T11:40:54.149844Z",
+     "iopub.status.busy": "2025-05-22T11:40:54.149520Z",
+     "iopub.status.idle": "2025-05-22T11:40:54.637113Z",
+     "shell.execute_reply": "2025-05-22T11:40:54.635971Z"
     },
     "papermill": {
-     "duration": 0.328031,
-     "end_time": "2025-02-03T10:29:02.873443",
+     "duration": 0.496681,
+     "end_time": "2025-05-22T11:40:54.638646",
      "exception": false,
-     "start_time": "2025-02-03T10:29:02.545412",
+     "start_time": "2025-05-22T11:40:54.141965",
      "status": "completed"
     },
     "tags": []
@@ -623,13 +912,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "93d769f7",
+   "id": "fb2213a9",
    "metadata": {
     "papermill": {
-     "duration": 0.006351,
-     "end_time": "2025-02-03T10:29:02.886711",
+     "duration": 0.006527,
+     "end_time": "2025-05-22T11:40:54.652166",
      "exception": false,
-     "start_time": "2025-02-03T10:29:02.880360",
+     "start_time": "2025-05-22T11:40:54.645639",
      "status": "completed"
     },
     "tags": []
@@ -640,13 +929,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "13f89941",
+   "id": "d0452f59",
    "metadata": {
     "papermill": {
-     "duration": 0.006314,
-     "end_time": "2025-02-03T10:29:02.899701",
+     "duration": 0.006602,
+     "end_time": "2025-05-22T11:40:54.665366",
      "exception": false,
-     "start_time": "2025-02-03T10:29:02.893387",
+     "start_time": "2025-05-22T11:40:54.658764",
      "status": "completed"
     },
     "tags": []
@@ -657,20 +946,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
-   "id": "6c33c606",
+   "execution_count": 8,
+   "id": "40bcc317",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:29:02.914884Z",
-     "iopub.status.busy": "2025-02-03T10:29:02.914476Z",
-     "iopub.status.idle": "2025-02-03T10:29:03.041151Z",
-     "shell.execute_reply": "2025-02-03T10:29:03.039691Z"
+     "iopub.execute_input": "2025-05-22T11:40:54.680113Z",
+     "iopub.status.busy": "2025-05-22T11:40:54.679761Z",
+     "iopub.status.idle": "2025-05-22T11:40:55.149516Z",
+     "shell.execute_reply": "2025-05-22T11:40:55.148428Z"
     },
     "papermill": {
-     "duration": 0.136264,
-     "end_time": "2025-02-03T10:29:03.042911",
+     "duration": 0.479538,
+     "end_time": "2025-05-22T11:40:55.151602",
      "exception": false,
-     "start_time": "2025-02-03T10:29:02.906647",
+     "start_time": "2025-05-22T11:40:54.672064",
      "status": "completed"
     },
     "tags": []
@@ -700,11 +989,11 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
       "  has_large_values = (abs_vals > 1e6).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
      ]
     }
@@ -750,13 +1039,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4c3f7a20",
+   "id": "4525928a",
    "metadata": {
     "papermill": {
-     "duration": 0.006709,
-     "end_time": "2025-02-03T10:29:03.056538",
+     "duration": 0.006756,
+     "end_time": "2025-05-22T11:40:55.165508",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.049829",
+     "start_time": "2025-05-22T11:40:55.158752",
      "status": "completed"
     },
     "tags": []
@@ -767,20 +1056,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
-   "id": "640f43d4",
+   "execution_count": 9,
+   "id": "7ad4f71e",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:29:03.071899Z",
-     "iopub.status.busy": "2025-02-03T10:29:03.071527Z",
-     "iopub.status.idle": "2025-02-03T10:29:03.110477Z",
-     "shell.execute_reply": "2025-02-03T10:29:03.109011Z"
+     "iopub.execute_input": "2025-05-22T11:40:55.180629Z",
+     "iopub.status.busy": "2025-05-22T11:40:55.180320Z",
+     "iopub.status.idle": "2025-05-22T11:40:55.218235Z",
+     "shell.execute_reply": "2025-05-22T11:40:55.217185Z"
     },
     "papermill": {
-     "duration": 0.048968,
-     "end_time": "2025-02-03T10:29:03.112343",
+     "duration": 0.047485,
+     "end_time": "2025-05-22T11:40:55.219946",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.063375",
+     "start_time": "2025-05-22T11:40:55.172461",
      "status": "completed"
     },
     "tags": []
@@ -848,13 +1137,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d0bb56d8",
+   "id": "d4e398d3",
    "metadata": {
     "papermill": {
-     "duration": 0.006491,
-     "end_time": "2025-02-03T10:29:03.126154",
+     "duration": 0.006391,
+     "end_time": "2025-05-22T11:40:55.233390",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.119663",
+     "start_time": "2025-05-22T11:40:55.226999",
      "status": "completed"
     },
     "tags": []
@@ -865,20 +1154,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
-   "id": "8bc76375",
+   "execution_count": 10,
+   "id": "00d37028",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:29:03.141861Z",
-     "iopub.status.busy": "2025-02-03T10:29:03.141486Z",
-     "iopub.status.idle": "2025-02-03T10:29:03.459438Z",
-     "shell.execute_reply": "2025-02-03T10:29:03.458194Z"
+     "iopub.execute_input": "2025-05-22T11:40:55.248847Z",
+     "iopub.status.busy": "2025-05-22T11:40:55.248548Z",
+     "iopub.status.idle": "2025-05-22T11:40:55.700513Z",
+     "shell.execute_reply": "2025-05-22T11:40:55.699454Z"
     },
     "papermill": {
-     "duration": 0.327827,
-     "end_time": "2025-02-03T10:29:03.461259",
+     "duration": 0.461287,
+     "end_time": "2025-05-22T11:40:55.702039",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.133432",
+     "start_time": "2025-05-22T11:40:55.240752",
      "status": "completed"
     },
     "tags": []
@@ -908,11 +1197,11 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
       "  has_large_values = (abs_vals > 1e6).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
      ]
     }
@@ -958,13 +1247,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "1fbbcd2f",
+   "id": "f1bffaaa",
    "metadata": {
     "papermill": {
-     "duration": 0.006729,
-     "end_time": "2025-02-03T10:29:03.475367",
+     "duration": 0.006574,
+     "end_time": "2025-05-22T11:40:55.715601",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.468638",
+     "start_time": "2025-05-22T11:40:55.709027",
      "status": "completed"
     },
     "tags": []
@@ -975,20 +1264,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
-   "id": "8bd3fbc9",
+   "execution_count": 11,
+   "id": "03d6182b",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:29:03.490807Z",
-     "iopub.status.busy": "2025-02-03T10:29:03.490433Z",
-     "iopub.status.idle": "2025-02-03T10:29:03.772264Z",
-     "shell.execute_reply": "2025-02-03T10:29:03.770923Z"
+     "iopub.execute_input": "2025-05-22T11:40:55.730596Z",
+     "iopub.status.busy": "2025-05-22T11:40:55.730050Z",
+     "iopub.status.idle": "2025-05-22T11:40:56.218923Z",
+     "shell.execute_reply": "2025-05-22T11:40:56.217441Z"
     },
     "papermill": {
-     "duration": 0.291658,
-     "end_time": "2025-02-03T10:29:03.773974",
+     "duration": 0.498418,
+     "end_time": "2025-05-22T11:40:56.220778",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.482316",
+     "start_time": "2025-05-22T11:40:55.722360",
      "status": "completed"
     },
     "tags": []
@@ -1018,11 +1307,11 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1458: RuntimeWarning: invalid value encountered in greater\n",
       "  has_large_values = (abs_vals > 1e6).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in less\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n",
-      "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
+      "/usr/local/lib/python3.11/dist-packages/pandas/io/formats/format.py:1459: RuntimeWarning: invalid value encountered in greater\n",
       "  has_small_values = ((abs_vals < 10 ** (-self.digits)) & (abs_vals > 0)).any()\n"
      ]
     }
@@ -1068,13 +1357,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c262e2f6",
+   "id": "87959d7b",
    "metadata": {
     "papermill": {
-     "duration": 0.006915,
-     "end_time": "2025-02-03T10:29:03.788377",
+     "duration": 0.006844,
+     "end_time": "2025-05-22T11:40:56.235462",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.781462",
+     "start_time": "2025-05-22T11:40:56.228618",
      "status": "completed"
     },
     "tags": []
@@ -1085,20 +1374,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
-   "id": "ef8f81d7",
+   "execution_count": 12,
+   "id": "9b6db4a7",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-03T10:29:03.804289Z",
-     "iopub.status.busy": "2025-02-03T10:29:03.803914Z",
-     "iopub.status.idle": "2025-02-03T10:29:04.073970Z",
-     "shell.execute_reply": "2025-02-03T10:29:04.072619Z"
+     "iopub.execute_input": "2025-05-22T11:40:56.251338Z",
+     "iopub.status.busy": "2025-05-22T11:40:56.250977Z",
+     "iopub.status.idle": "2025-05-22T11:40:56.729982Z",
+     "shell.execute_reply": "2025-05-22T11:40:56.728936Z"
     },
     "papermill": {
-     "duration": 0.280196,
-     "end_time": "2025-02-03T10:29:04.075765",
+     "duration": 0.489131,
+     "end_time": "2025-05-22T11:40:56.731538",
      "exception": false,
-     "start_time": "2025-02-03T10:29:03.795569",
+     "start_time": "2025-05-22T11:40:56.242407",
      "status": "completed"
     },
     "tags": []
@@ -1169,7 +1458,6 @@
   "kaggle": {
    "accelerator": "none",
    "dataSources": [],
-   "dockerImageVersionId": 30839,
    "isGpuEnabled": false,
    "isInternetEnabled": true,
    "language": "python",
@@ -1190,18 +1478,18 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.10.12"
+   "version": "3.11.11"
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 42.929797,
-   "end_time": "2025-02-03T10:29:04.805450",
+   "duration": 63.087164,
+   "end_time": "2025-05-22T11:40:57.460129",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-02-03T10:28:21.875653",
+   "start_time": "2025-05-22T11:39:54.372965",
    "version": "2.6.0"
   }
  },
